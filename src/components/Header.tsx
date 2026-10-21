@@ -17,7 +17,7 @@ export function Logo({ className = 'h-14' }: { className?: string }) {
       loading="eager"
       className={`${className} w-auto`}
       fallback={
-        <span className="flex items-center gap-2 font-display text-2xl font-extrabold leading-none text-rosa-800">
+        <span className="flex items-center gap-2 font-display tracking-wide text-2xl leading-none text-rosa-800">
           <span className="grid size-10 place-items-center rounded-full bg-rosa-200 text-xl" aria-hidden="true">🍔</span>
           {site.name}
         </span>
@@ -33,9 +33,9 @@ export function Header() {
         <a href="#topo" aria-label={`${site.name} – início`}>
           <Logo />
         </a>
-        <nav aria-label="Principal" className="hidden items-center gap-6 font-bold text-rosa-800 lg:flex">
+        <nav aria-label="Principal" className="hidden items-center gap-7 text-sm font-bold uppercase tracking-wider text-tinta lg:flex">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="hover:text-rosa-600">
+            <a key={l.href} href={l.href} className="hover:text-rosa-700">
               {l.label}
             </a>
           ))}

@@ -2,20 +2,20 @@ import { site } from '../config'
 import { track } from '../lib/track'
 import { ArrowIcon } from './Icons'
 
-type BrendiProps = { location: string; label?: string; size?: 'md' | 'lg'; pulse?: boolean; className?: string }
+type BrendiProps = { location: string; label?: string; size?: 'md' | 'lg'; className?: string }
 
-export function BrendiButton({ location, label = 'Ver cardápio e pedir', size = 'lg', pulse, className = '' }: BrendiProps) {
-  const sizes = size === 'lg' ? 'px-8 py-4 text-lg sm:text-xl' : 'px-5 py-2.5 text-base'
+export function BrendiButton({ location, label = 'Ver cardápio e pedir', size = 'lg', className = '' }: BrendiProps) {
+  const sizes = size === 'lg' ? 'min-h-14 px-8 pt-3.5 pb-3 text-2xl sm:text-[1.7rem]' : 'min-h-11 px-5 pt-2 pb-1.5 text-xl'
   return (
     <a
       href={site.brendiUrl}
       target="_blank"
       rel="noopener"
       onClick={() => track('clique_pedido_brendi', { local: location })}
-      className={`group inline-flex items-center justify-center gap-2 rounded-full bg-rosa-700 font-extrabold text-white shadow-lg shadow-rosa-700/25 transition hover:-translate-y-0.5 hover:bg-rosa-800 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-rosa-400 ${sizes} ${pulse ? 'cta-pulse' : ''} ${className}`}
+      className={`group inline-flex items-center justify-center gap-2 rounded-full bg-rosa-700 font-display uppercase leading-none tracking-wider text-white shadow-[0_4px_0_0_var(--color-tinta)] transition duration-150 hover:bg-tinta active:translate-y-1 active:shadow-none focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-rosa-400 ${sizes} ${className}`}
     >
       {label}
-      <ArrowIcon className="size-5 transition group-hover:translate-x-1" />
+      <ArrowIcon className="-mt-1 size-5 transition group-hover:translate-x-1 motion-reduce:transition-none" />
     </a>
   )
 }
@@ -30,13 +30,12 @@ export function AppPill({ app, location, className = '' }: AppPillProps) {
       target="_blank"
       rel="noopener"
       onClick={() => track('clique_app_parceiro', { app, local: location })}
-      className={`inline-flex w-full items-center justify-center gap-3 rounded-full px-8 py-4 text-lg font-extrabold shadow-lg transition hover:-translate-y-0.5 focus-visible:outline-4 focus-visible:outline-offset-2 sm:w-auto sm:min-w-64 ${
+      className={`inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full px-8 pt-3.5 pb-3 font-display text-2xl uppercase leading-none tracking-wider shadow-[0_4px_0_0_var(--color-tinta)] transition duration-150 active:translate-y-1 active:shadow-none focus-visible:outline-4 focus-visible:outline-offset-4 sm:w-auto sm:min-w-64 ${
         isIfood
-          ? 'bg-ifood text-white shadow-ifood/30 hover:bg-ifood-dark focus-visible:outline-ifood'
-          : 'bg-food99 text-neutral-900 shadow-food99/40 hover:bg-food99-dark focus-visible:outline-neutral-900'
+          ? 'bg-ifood text-white hover:bg-ifood-dark focus-visible:outline-ifood'
+          : 'bg-food99 text-tinta hover:bg-food99-dark focus-visible:outline-tinta'
       } ${className}`}
     >
-      <span className="text-2xl leading-none" aria-hidden="true">🛵</span>
       Pedir no {isIfood ? 'iFood' : '99Food'}
     </a>
   )

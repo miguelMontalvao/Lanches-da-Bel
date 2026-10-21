@@ -9,9 +9,9 @@ export function Highlights() {
   return (
     <section id="cardapio" className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
       <div className="mx-auto max-w-2xl text-center">
-        <p className="font-bold uppercase tracking-widest text-rosa-600">Os queridinhos do bairro</p>
-        <h2 className="mt-2 font-display text-3xl font-extrabold text-rosa-900 sm:text-4xl">Dá água na boca só de olhar</h2>
-        <p className="mt-3 text-lg text-rosa-900/75">Esses são os mais pedidos da casa. Escolha o seu e finalize em poucos cliques.</p>
+        <p className="font-bold uppercase tracking-[0.2em] text-rosa-700">Os queridinhos do bairro</p>
+        <h2 className="mt-2 font-display text-5xl uppercase leading-[0.95] tracking-wide text-tinta sm:text-6xl">Dá água na boca só de olhar</h2>
+        <p className="mt-3 text-lg text-tinta/70">Esses são os mais pedidos da casa. Escolha o seu e finalize em poucos cliques.</p>
       </div>
 
       <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -22,7 +22,7 @@ export function Highlights() {
               target="_blank"
               rel="noopener"
               onClick={() => track('clique_pedido_brendi', { local: 'destaque', item: item.name })}
-              className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-md ring-1 ring-rosa-100 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-rosa-200/60"
+              className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-md ring-1 ring-rosa-100 transition hover:-translate-y-1 hover:shadow-[8px_8px_0_0_var(--color-tinta)]"
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-rosa-100">
                 <SafeImage
@@ -36,15 +36,15 @@ export function Highlights() {
                   }
                 />
                 {item.badge && (
-                  <span className="absolute left-3 top-3 rounded-full bg-rosa-700 px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-white">
+                  <span className="absolute left-3 top-3 rounded-full bg-tinta px-3 pb-0.5 pt-1 font-display text-base uppercase tracking-wider text-white">
                     {item.badge}
                   </span>
                 )}
               </div>
               <div className="flex flex-1 flex-col p-5">
-                <h3 className="font-display text-xl font-extrabold text-rosa-900">{item.name}</h3>
-                <p className="mt-1 flex-1 text-rosa-900/75">{item.description}</p>
-                <span className="mt-4 font-extrabold text-rosa-700 group-hover:text-rosa-900">Quero esse →</span>
+                <h3 className="font-display text-3xl uppercase leading-none tracking-wide text-tinta">{item.name}</h3>
+                <p className="mt-1 flex-1 text-tinta/70">{item.description}</p>
+                <span className="mt-4 font-bold uppercase tracking-wide text-rosa-700 group-hover:text-tinta">Quero esse →</span>
               </div>
             </a>
           </li>

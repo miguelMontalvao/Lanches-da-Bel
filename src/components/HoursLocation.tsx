@@ -10,7 +10,7 @@ export function HoursLocation() {
     <section id="horario" className="bg-rosa-50 py-16 sm:py-20">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 lg:grid-cols-5">
         <div className="rounded-3xl bg-white p-6 shadow-md ring-1 ring-rosa-100 sm:p-8 lg:col-span-2">
-          <h2 className="flex items-center gap-3 font-display text-2xl font-extrabold text-rosa-900 sm:text-3xl">
+          <h2 className="flex items-center gap-3 font-display text-4xl uppercase leading-none tracking-wide text-tinta sm:text-5xl">
             <ClockIcon className="size-7 text-rosa-600" />
             Horário de funcionamento
           </h2>
@@ -18,7 +18,7 @@ export function HoursLocation() {
             {hours.map((h) => {
               const isToday = h.day === today
               return (
-                <li key={h.day} className={`flex justify-between py-2.5 ${isToday ? 'font-extrabold text-rosa-700' : 'text-rosa-900/80'}`}>
+                <li key={h.day} className={`flex justify-between py-2.5 ${isToday ? 'font-extrabold text-rosa-700' : 'text-tinta/75'}`}>
                   <span>
                     {h.label}
                     {isToday && <span className="ml-2 rounded-full bg-rosa-100 px-2 py-0.5 text-xs">hoje</span>}
@@ -53,8 +53,8 @@ export function HoursLocation() {
             <address className="flex gap-3 not-italic">
               <PinIcon className="mt-0.5 size-6 shrink-0 text-rosa-600" />
               <span>
-                <strong className="block text-rosa-900">{address.street}</strong>
-                <span className="text-rosa-900/75">
+                <strong className="block text-tinta">{address.street}</strong>
+                <span className="text-tinta/70">
                   {address.neighborhood}, {address.region} – {address.city}/{address.state}
                 </span>
               </span>

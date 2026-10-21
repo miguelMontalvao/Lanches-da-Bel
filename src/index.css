@@ -17,8 +17,10 @@
   --color-food99: #ffd400;
   --color-food99-dark: #f2c200;
 
-  --font-display: "Baloo 2", ui-rounded, system-ui, sans-serif;
-  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --color-tinta: #141414;
+
+  --font-display: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
@@ -27,19 +29,9 @@ html {
 }
 
 body {
-  @apply bg-white font-sans text-rosa-900 antialiased;
-}
-
-@keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 rgb(214 61 120 / 0.45); }
-  80%, 100% { box-shadow: 0 0 0 16px rgb(214 61 120 / 0); }
-}
-
-.cta-pulse {
-  animation: pulse-ring 2.2s ease-out infinite;
+  @apply bg-white font-sans text-tinta antialiased;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .cta-pulse { animation: none; }
 }

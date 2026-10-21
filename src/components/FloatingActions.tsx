@@ -23,9 +23,9 @@ export function FloatingActions() {
           target="_blank"
           rel="noopener"
           onClick={() => track('clique_pedido_brendi', { local: 'barra_mobile' })}
-          className="flex w-full items-center justify-center rounded-full bg-rosa-700 py-3.5 text-lg font-extrabold text-white shadow-lg shadow-rosa-700/25"
+          className="flex min-h-14 w-full items-center justify-center rounded-full bg-rosa-700 pb-2.5 pt-3.5 font-display text-2xl uppercase leading-none tracking-wider text-white shadow-[0_4px_0_0_var(--color-tinta)] active:translate-y-1 active:shadow-none"
         >
-          🍔 Pedir agora
+          Pedir agora
         </a>
       </div>
     </>

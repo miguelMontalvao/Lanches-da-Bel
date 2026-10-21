@@ -5,24 +5,21 @@ import { BrendiButton } from './Buttons'
 import { StarIcon } from './Icons'
 import { SafeImage } from './SafeImage'
 
-function OpenBadge() {
+function OpenStatus() {
   const [open, setOpen] = useState(isOpenNow)
   useEffect(() => {
     const id = setInterval(() => setOpen(isOpenNow()), 60_000)
     return () => clearInterval(id)
   }, [])
   return open ? (
-    <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-1.5 text-sm font-bold text-emerald-800 ring-1 ring-emerald-200">
-      <span className="relative flex size-2.5">
-        <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500 opacity-75 motion-reduce:hidden" />
-        <span className="relative inline-flex size-2.5 rounded-full bg-emerald-600" />
-      </span>
-      Aberto agora • peça já!
-    </span>
+    <p className="inline-flex items-center gap-2 text-sm font-bold text-emerald-800">
+      <span className="size-2.5 rounded-full bg-emerald-600" aria-hidden="true" />
+      Aberto agora — seu pedido sai em instantes
+    </p>
   ) : (
-    <a href="#horario" className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-sm font-bold text-rosa-800 ring-1 ring-rosa-200">
-      <span className="size-2.5 rounded-full bg-rosa-400" />
-      Fechado agora • veja nosso horário
+    <a href="#horario" className="inline-flex items-center gap-2 text-sm font-semibold text-tinta/70 underline decoration-rosa-300 underline-offset-4 hover:text-tinta">
+      <span className="size-2.5 rounded-full bg-tinta/30" aria-hidden="true" />
+      Fechado agora — veja nosso horário
     </a>
   )
 }
@@ -31,54 +28,63 @@ const badges = ['Super Restaurante iFood', 'Loja Destaque 99Food', '+10 anos de 
 
 export function Hero() {
   return (
-    <section id="topo" className="relative overflow-hidden bg-gradient-to-b from-rosa-100 via-rosa-50 to-white">
-      <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 size-96 rounded-full bg-rosa-200/60 blur-3xl" />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 sm:py-16 lg:grid-cols-2 lg:py-24">
+    <section id="topo" className="relative overflow-hidden bg-rosa-100">
+      {/* Mancha rosa atrás do lanche */}
+      <div aria-hidden="true" className="pointer-events-none absolute -bottom-40 -right-40 size-[38rem] rounded-full bg-rosa-200 lg:-right-20 lg:top-1/2 lg:size-[44rem] lg:-translate-y-1/2" />
+
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-16 pt-10 sm:pt-14 lg:grid-cols-[1.15fr_1fr] lg:gap-10 lg:py-16">
         <div className="text-center lg:text-left">
-          <OpenBadge />
-          <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] text-rosa-900 sm:text-5xl lg:text-6xl">
-            Bateu a fome?
-            <span className="block text-rosa-600">O lanche da Bel resolve.</span>
+          <p className="inline-block rounded-full bg-tinta px-4 pb-1 pt-1.5 font-display text-lg uppercase tracking-widest text-rosa-200">
+            Há +10 anos em Senador Camará
+          </p>
+          <h1 className="mt-5 font-display text-[3.75rem] uppercase leading-[0.9] tracking-wide text-tinta sm:text-8xl lg:text-[6.25rem]">
+            <span className="block sm:whitespace-nowrap">Bateu a fome?</span>
+            <span className="block text-rosa-700 sm:whitespace-nowrap">A Bel resolve.</span>
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-rosa-900/80 sm:text-xl lg:mx-0">
-            Há mais de 10 anos servindo os lanches mais queridos de {site.address.neighborhood} e {site.address.region}.
-            Feito na hora, caprichado e entregue quentinho na sua casa.
+          <p className="mx-auto mt-6 max-w-lg text-lg font-medium text-tinta/75 sm:text-xl lg:mx-0">
+            Há mais de 10 anos fazendo os lanches mais queridos de {site.address.neighborhood} e {site.address.region}. Feito na
+            hora, caprichado e entregue quentinho.
           </p>
 
-          <div className="mt-8 flex flex-col items-center gap-3 lg:items-start">
-            <BrendiButton location="hero" pulse className="w-full sm:w-auto" />
-            <a href="#apps" className="text-sm font-bold text-rosa-700 underline decoration-rosa-300 underline-offset-4 hover:text-rosa-900">
-              Mora fora da nossa área de entrega? Peça pelo iFood ou 99Food
+          <div className="mt-8 flex flex-col items-center gap-4 lg:items-start">
+            <BrendiButton location="hero" className="w-full sm:w-auto" />
+            <OpenStatus />
+            <a href="#apps" className="text-sm font-semibold text-tinta/70 underline decoration-rosa-300 underline-offset-4 hover:text-tinta">
+              Fora da nossa área de entrega? Peça pelo iFood ou 99Food
             </a>
           </div>
 
-          <ul className="mt-8 flex flex-wrap justify-center gap-2 lg:justify-start">
+          <ul className="mt-8 flex flex-wrap justify-center gap-x-5 gap-y-2 lg:justify-start">
             {badges.map((b) => (
-              <li key={b} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-sm font-bold text-rosa-800 shadow-sm ring-1 ring-rosa-100">
-                <StarIcon className="size-4 text-amber-400" />
+              <li key={b} className="inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-tinta">
+                <StarIcon className="size-4 text-rosa-600" />
                 {b}
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="relative mx-auto w-full max-w-sm lg:max-w-md">
-          <div className="aspect-square overflow-hidden rounded-[2.5rem] bg-rosa-200 shadow-2xl shadow-rosa-300/50 ring-8 ring-white">
+        <div className="relative mx-auto w-full max-w-[22rem] sm:max-w-md lg:max-w-[30rem]">
+          <div className="aspect-square rotate-2 overflow-hidden rounded-[2rem] border-[6px] border-tinta bg-rosa-200 shadow-[14px_14px_0_0_var(--color-rosa-700)]">
             <SafeImage
               src={site.heroImage}
-              alt="Lanche caprichado da Lanches da Bel"
+              alt="X-Tudo da Bel, com hambúrgueres, ovo, presunto e queijo"
               loading="eager"
-              className="size-full object-cover"
+              className="size-full scale-105 object-cover"
               fallback={
-                <div className="grid size-full place-items-center bg-gradient-to-br from-rosa-200 to-rosa-300 text-[9rem]" aria-hidden="true">
+                <div className="grid size-full place-items-center bg-rosa-200 text-[9rem]" aria-hidden="true">
                   🍔
                 </div>
               }
             />
           </div>
-          <div className="absolute -bottom-5 left-4 rounded-2xl bg-white px-5 py-3 shadow-xl ring-1 ring-rosa-100 sm:-left-6">
-            <p className="font-display text-3xl font-extrabold leading-none text-rosa-600">+100</p>
-            <p className="text-sm font-bold text-rosa-900/70">lanches vendidos por dia</p>
+          {/* Selo de prova social */}
+          <div className="absolute -left-3 -top-6 grid size-32 -rotate-12 place-items-center rounded-full bg-tinta text-center text-white shadow-xl sm:-left-8 sm:size-36">
+            <p className="font-display uppercase leading-[0.85] tracking-wide">
+              <span className="block text-5xl text-rosa-300 sm:text-6xl">+100</span>
+              <span className="block text-lg">lanches</span>
+              <span className="block text-lg">por dia</span>
+            </p>
           </div>
         </div>
       </div>
