@@ -62,7 +62,7 @@ export function Hero() {
           </ul>
         </div>
 
-        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+        <div className="relative mx-auto w-full max-w-sm lg:max-w-md">
           <div className="aspect-square overflow-hidden rounded-[2.5rem] bg-rosa-200 shadow-2xl shadow-rosa-300/50 ring-8 ring-white">
             <SafeImage
               src={site.heroImage}

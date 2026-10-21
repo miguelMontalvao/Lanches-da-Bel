@@ -31,7 +31,7 @@ Coloque os arquivos em `public/images/` com estes nomes (enquanto não existirem
 |---|---|---|
 | `logo.png` | Cabeçalho e rodapé (fundo transparente) | 400px de altura |
 | `hero.jpg` | Foto grande do topo + prévia no WhatsApp | 1200×1200 |
-| `lanche-1.jpg` … `lanche-6.jpg` | Cards de destaque | 800×600 |
+| `lanche-1.jpg` … `lanche-4.jpg` | Cards de destaque | 800×800 |
 
 Dica: comprima as fotos em https://squoosh.app antes de subir (ideal < 200 KB cada).
 

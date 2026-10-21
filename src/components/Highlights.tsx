@@ -3,7 +3,7 @@ import { track } from '../lib/track'
 import { BrendiButton } from './Buttons'
 import { SafeImage } from './SafeImage'
 
-const fallbackEmoji = ['🍔', '🥓', '🥬', '🌭', '🍟', '🥤']
+const fallbackEmoji = ['🍔', '🌭', '🍳', '🍟']
 
 export function Highlights() {
   return (
@@ -14,7 +14,7 @@ export function Highlights() {
         <p className="mt-3 text-lg text-rosa-900/75">Esses são os mais pedidos da casa. Escolha o seu e finalize em poucos cliques.</p>
       </div>
 
-      <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {highlights.map((item, i) => (
           <li key={item.name}>
             <a

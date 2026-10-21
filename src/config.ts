@@ -62,39 +62,30 @@ export const proof = [
   { value: 'Loja', unit: 'Destaque', label: 'reconhecida pela 99Food' },
 ]
 
-// Destaques do cardápio — TODO: trocar nomes, descrições e fotos pelos reais.
+// Destaques do cardápio — TODO: confirmar nomes e descrições reais.
 export const highlights = [
   {
     name: 'X-Tudo da Bel',
-    description: 'O campeão da casa: hambúrguer, ovo, bacon, presunto, queijo, salada e muito mais.',
+    description: 'O campeão da casa: dois hambúrgueres, ovo, bacon, presunto e muito queijo derretido.',
     image: '/images/lanche-1.jpg',
     badge: 'Mais pedido',
   },
   {
-    name: 'X-Bacon',
-    description: 'Hambúrguer suculento, queijo derretido e bacon crocante no pão macio.',
+    name: 'Mega 30cm',
+    description: 'Prensado de 30cm, caprichado com batata palha, ovo de codorna, azeitona e queijo ralado.',
     image: '/images/lanche-2.jpg',
+    badge: 'Gigante',
   },
   {
-    name: 'X-Salada',
-    description: 'Clássico que nunca erra: hambúrguer, queijo, alface, tomate e maionese da casa.',
+    name: 'X-Egg Salada',
+    description: 'Hambúrguer suculento, ovo, cheddar cremoso, alface e tomate no pão macio.',
     image: '/images/lanche-3.jpg',
   },
   {
-    name: 'Cachorro-Quente',
-    description: 'Prensado, recheado e caprichado do jeitinho que o bairro ama.',
+    name: 'Combo da Bel',
+    description: 'Batata com cheddar e bacon, anéis de cebola e lanches variados. Ideal pra dividir!',
     image: '/images/lanche-4.jpg',
-  },
-  {
-    name: 'Batata Frita',
-    description: 'Sequinha e crocante — perfeita pra acompanhar qualquer lanche.',
-    image: '/images/lanche-5.jpg',
-  },
-  {
-    name: 'Combos',
-    description: 'Lanche + batata + refri com preço especial. Ideal pra matar a fome de vez.',
-    image: '/images/lanche-6.jpg',
-    badge: 'Economize',
+    badge: 'Pra galera',
   },
 ]
 

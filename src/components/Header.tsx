@@ -9,7 +9,7 @@ const links = [
   { href: '#duvidas', label: 'Dúvidas' },
 ]
 
-export function Logo({ className = 'h-12' }: { className?: string }) {
+export function Logo({ className = 'h-14' }: { className?: string }) {
   return (
     <SafeImage
       src={site.logo}
