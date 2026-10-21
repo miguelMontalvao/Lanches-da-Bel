@@ -2,15 +2,17 @@ import { AppPill } from './Buttons'
 
 export function OtherApps() {
   return (
-    <section id="apps" className="py-16 sm:py-20">
+    <section id="apps" className="bg-rosa-50 pb-16 pt-4 sm:pb-20 sm:pt-6">
       <div className="mx-auto max-w-4xl px-4 text-center">
-        <p className="font-bold uppercase tracking-[0.2em] text-rosa-700">Fora da nossa área de entrega?</p>
-        <h2 className="mt-2 font-display text-5xl uppercase leading-[0.95] tracking-wide text-tinta sm:text-6xl">A Bel também chega até você pelos apps</h2>
+        <h2 className="font-display text-5xl uppercase leading-[0.95] tracking-wide text-tinta sm:text-6xl">
+          Fora da nossa <span className="text-rosa-700">área de entrega?</span>
+        </h2>
+        <p className="mt-2 font-bold uppercase tracking-[0.2em] text-tinta/80">A Bel também chega até você pelos apps</p>
         <p className="mx-auto mt-3 max-w-2xl text-lg text-tinta/70">
           Se o cardápio digital não atende o seu endereço, peça pela 99Food ou pelo iFood — mesmo sabor, mesma qualidade.
         </p>
 
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <AppPill app="99food" location="secao_apps" />
           <AppPill app="ifood" location="secao_apps" />
         </div>

@@ -7,7 +7,7 @@ export function HoursLocation() {
   const today = todayIndex()
   const { address } = site
   return (
-    <section id="horario" className="bg-rosa-50 py-16 sm:py-20">
+    <section id="horario" className="py-16 sm:py-20">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 lg:grid-cols-5">
         <div className="rounded-3xl bg-white p-6 shadow-md ring-1 ring-rosa-100 sm:p-8 lg:col-span-2">
           <h2 className="flex items-center gap-3 font-display text-4xl uppercase leading-none tracking-wide text-tinta sm:text-5xl">

@@ -8,9 +8,9 @@ const steps = [
 
 export function OrderMain() {
   return (
-    <section id="pedir" className="bg-rosa-50 py-16 sm:py-20">
+    <section id="pedir" className="bg-rosa-50 pb-8 pt-16 sm:pb-10 sm:pt-20">
       <div className="mx-auto max-w-5xl px-4">
-        <div className="rounded-[2.5rem] bg-white px-6 py-12 text-center shadow-xl shadow-rosa-200/50 ring-1 ring-rosa-100 sm:px-12">
+        <div className="rounded-[2.5rem] bg-white px-6 py-10 text-center shadow-xl shadow-rosa-200/50 ring-1 ring-rosa-100 sm:px-12">
           <span className="inline-block rounded-full bg-tinta px-4 pb-1 pt-1.5 font-display text-lg uppercase tracking-widest text-rosa-200">
             Canal oficial • Pedido direto com a Bel
           </span>
@@ -20,7 +20,7 @@ export function OrderMain() {
             lanchonete do seu bairro. 💗
           </p>
 
-          <ol className="mx-auto mt-10 grid max-w-4xl gap-6 text-left sm:grid-cols-3">
+          <ol className="mx-auto mt-8 grid max-w-4xl gap-6 text-left sm:grid-cols-3">
             {steps.map((s, i) => (
               <li key={s.title} className="flex gap-4 rounded-2xl bg-rosa-50 p-5 sm:flex-col sm:gap-2">
                 <span className="text-4xl" aria-hidden="true">{s.emoji}</span>
@@ -34,7 +34,7 @@ export function OrderMain() {
             ))}
           </ol>
 
-          <BrendiButton location="secao_pedido" label="Abrir cardápio e pedir agora" className="mt-10 w-full sm:w-auto" />
+          <BrendiButton location="secao_pedido" label="Abrir cardápio e pedir" className="mt-8 w-full sm:w-auto" />
         </div>
       </div>
     </section>
