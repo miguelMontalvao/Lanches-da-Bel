@@ -65,21 +65,24 @@ export function Hero() {
         </div>
 
         <div className="relative mx-auto w-full max-w-[22rem] sm:max-w-md lg:max-w-[30rem]">
-          <div className="aspect-square rotate-2 overflow-hidden rounded-[2rem] border-[6px] border-tinta bg-rosa-200 shadow-[14px_14px_0_0_var(--color-rosa-700)]">
+          <div className="relative aspect-square">
+            {/* Disco atrás do lanche */}
+            <div aria-hidden="true" className="absolute inset-[8%] rounded-full border-[6px] border-tinta bg-rosa-300" />
+            <div aria-hidden="true" className="absolute inset-x-[18%] bottom-[3%] h-[7%] rounded-[50%] bg-tinta/25 blur-md" />
             <SafeImage
               src={site.heroImage}
               alt="X-Tudo da Bel, com hambúrgueres, ovo, presunto e queijo"
               loading="eager"
-              className="size-full scale-105 object-cover"
+              className="relative size-full -rotate-3 object-contain drop-shadow-[0_18px_22px_rgb(20_20_20/0.35)]"
               fallback={
-                <div className="grid size-full place-items-center bg-rosa-200 text-[9rem]" aria-hidden="true">
+                <div className="relative grid size-full place-items-center text-[9rem]" aria-hidden="true">
                   🍔
                 </div>
               }
             />
           </div>
           {/* Selo de prova social */}
-          <div className="absolute -left-3 -top-6 grid size-32 -rotate-12 place-items-center rounded-full bg-tinta text-center text-white shadow-xl sm:-left-8 sm:size-36">
+          <div className="absolute -left-2 top-2 grid size-32 -rotate-12 place-items-center rounded-full bg-tinta text-center text-white shadow-xl sm:-left-6 sm:size-36">
             <p className="font-display uppercase leading-[0.85] tracking-wide">
               <span className="block text-5xl text-rosa-300 sm:text-6xl">+100</span>
               <span className="block text-lg">lanches</span>
