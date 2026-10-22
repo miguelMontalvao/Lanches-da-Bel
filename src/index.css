@@ -1,37 +1,66 @@
 @import "tailwindcss";
 
 @theme {
-  --color-rosa-50: #fff6f9;
-  --color-rosa-100: #ffe8f0;
-  --color-rosa-200: #ffd1e1;
-  --color-rosa-300: #fcb2cb;
-  --color-rosa-400: #f78bb0;
-  --color-rosa-500: #ec5f92;
-  --color-rosa-600: #d63d78;
-  --color-rosa-700: #b42a61;
-  --color-rosa-800: #8f2450;
-  --color-rosa-900: #5c1834;
+  /* Base escura, quente */
+  --color-carvao: #121010;
+  --color-grafite: #1b1817;
+  --color-grafite-2: #26211f;
+  --color-linha: #3a3331;
+  --color-creme: #f7efe5;
 
+  /* Marca e detalhes quentes */
+  --color-rosa: #f26a9c;
+  --color-rosa-claro: #ff8db5;
+  --color-mostarda: #f4b740;
+
+  /* Parceiros */
   --color-ifood: #ea1d2c;
   --color-ifood-dark: #c4121f;
   --color-food99: #ffd400;
   --color-food99-dark: #f2c200;
 
-  --color-tinta: #141414;
-
   --font-display: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
   --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-fade-up: fade-up 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
+  color-scheme: dark;
 }
 
 body {
-  @apply bg-white font-sans text-tinta antialiased;
+  @apply bg-carvao font-sans text-creme antialiased;
+}
+
+::selection {
+  @apply bg-rosa text-carvao;
+}
+
+/* Entrada discreta das seções (ativada só com JS e sem redução de movimento) */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

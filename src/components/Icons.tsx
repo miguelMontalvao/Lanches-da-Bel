@@ -13,18 +13,7 @@ export const PinIcon = ({ className }: P) => (
   </svg>
 )
 
-export const ClockIcon = ({ className }: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-    <circle cx="12" cy="12" r="9" />
-    <path d="M12 7v5l3 2" />
-  </svg>
-)
 
-export const StarIcon = ({ className }: P) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-    <path d="m12 2.5 2.94 5.96 6.56.95-4.75 4.63 1.12 6.54L12 17.5l-5.87 3.08 1.12-6.54L2.5 9.41l6.56-.95L12 2.5Z" />
-  </svg>
-)
 
 export const ArrowIcon = ({ className }: P) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
@@ -32,8 +21,3 @@ export const ArrowIcon = ({ className }: P) => (
   </svg>
 )
 
-export const ChevronIcon = ({ className }: P) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-    <path d="m6 9 6 6 6-6" />
-  </svg>
-)

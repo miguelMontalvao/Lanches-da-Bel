@@ -1,73 +1,79 @@
-import { hours, mapsDirectionsUrl, mapsEmbedUrl, site, whatsappUrl } from '../config'
+import { hours, mapsDirectionsUrl, mapsEmbedUrl, site } from '../config'
 import { formatTime, todayIndex } from '../lib/hours'
 import { track } from '../lib/track'
-import { ClockIcon, PinIcon, WhatsAppIcon } from './Icons'
+import { WhatsAppButton } from './Buttons'
+import { ArrowIcon, PinIcon } from './Icons'
+import { SectionLabel } from './SectionLabel'
 
 export function HoursLocation() {
   const today = todayIndex()
   const { address } = site
   return (
-    <section id="horario" className="py-16 sm:py-20">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 lg:grid-cols-5">
-        <div className="rounded-3xl bg-white p-6 shadow-md ring-1 ring-rosa-100 sm:p-8 lg:col-span-2">
-          <h2 className="flex items-center gap-3 font-display text-4xl uppercase leading-none tracking-wide text-tinta sm:text-5xl">
-            <ClockIcon className="size-7 text-rosa-600" />
-            Horário de funcionamento
+    <section id="horario" aria-labelledby="horario-titulo" className="py-16 sm:py-24">
+      <div className="mx-auto max-w-6xl px-4">
+        <div data-reveal>
+          <SectionLabel index="03">Horário e local</SectionLabel>
+          <h2 id="horario-titulo" className="mt-4 font-display text-5xl uppercase leading-[0.9] tracking-wide sm:text-6xl">
+            Vem buscar ou pede em casa
           </h2>
-          <ul className="mt-6 divide-y divide-rosa-100">
-            {hours.map((h) => {
-              const isToday = h.day === today
-              return (
-                <li key={h.day} className={`flex justify-between py-2.5 ${isToday ? 'font-extrabold text-rosa-700' : 'text-tinta/75'}`}>
-                  <span>
-                    {h.label}
-                    {isToday && <span className="ml-2 rounded-full bg-rosa-100 px-2 py-0.5 text-xs">hoje</span>}
-                  </span>
-                  <span>{h.open && h.close ? `${formatTime(h.open)} às ${formatTime(h.close)}` : 'Fechado'}</span>
-                </li>
-              )
-            })}
-          </ul>
-          <a
-            href={whatsappUrl()}
-            target="_blank"
-            rel="noopener"
-            onClick={() => track('clique_whatsapp', { local: 'horario' })}
-            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#1da851] px-6 py-3 font-extrabold text-white transition hover:bg-[#178a43]"
-          >
-            <WhatsAppIcon className="size-5" />
-            Falar no WhatsApp {site.whatsapp.display}
-          </a>
         </div>
 
-        <div className="overflow-hidden rounded-3xl bg-white shadow-md ring-1 ring-rosa-100 lg:col-span-3">
-          <iframe
-            title={`Mapa: ${site.name}`}
-            src={mapsEmbedUrl}
-            className="h-72 w-full border-0 sm:h-80"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
-          <div className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
-            <address className="flex gap-3 not-italic">
-              <PinIcon className="mt-0.5 size-6 shrink-0 text-rosa-600" />
+        <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-12">
+          <div data-reveal className="lg:col-span-5">
+            <table className="w-full text-left">
+              <caption className="sr-only">Horário de funcionamento</caption>
+              <tbody>
+                {hours.map((h) => {
+                  const isToday = h.day === today
+                  return (
+                    <tr key={h.day} className={`border-b border-linha ${isToday ? 'text-creme' : 'text-creme/70'}`}>
+                      <th scope="row" className={`py-3 font-medium ${isToday ? 'font-semibold' : ''}`}>
+                        {h.label}
+                        {isToday && <span className="ml-2 text-xs font-semibold uppercase tracking-wider text-mostarda">Hoje</span>}
+                      </th>
+                      <td className="py-3 text-right tabular-nums">
+                        {h.open && h.close ? `${formatTime(h.open)} – ${formatTime(h.close)}` : 'Fechado'}
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+
+            <address className="mt-8 flex gap-3 not-italic">
+              <PinIcon className="mt-0.5 size-5 shrink-0 text-rosa" />
               <span>
-                <strong className="block text-tinta">{address.street}</strong>
-                <span className="text-tinta/70">
-                  {address.neighborhood}, {address.region} – {address.city}/{address.state}
+                <span className="block font-semibold">{address.street}</span>
+                <span className="text-creme/70">
+                  {address.neighborhood}, {address.region} · {address.city}/{address.state}
                 </span>
               </span>
             </address>
-            <a
-              href={mapsDirectionsUrl}
-              target="_blank"
-              rel="noopener"
-              onClick={() => track('clique_como_chegar')}
-              className="inline-flex shrink-0 items-center justify-center rounded-full border-2 border-rosa-700 px-6 py-2.5 font-extrabold text-rosa-700 transition hover:bg-rosa-700 hover:text-white"
-            >
-              Como chegar
-            </a>
+
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={mapsDirectionsUrl}
+                target="_blank"
+                rel="noopener"
+                onClick={() => track('clique_como_chegar')}
+                className="group inline-flex min-h-14 items-center justify-center gap-2.5 rounded-md bg-creme px-6 pb-3 pt-3.5 font-display text-2xl uppercase leading-none tracking-wider text-carvao transition hover:bg-white active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-creme"
+              >
+                Como chegar
+                <ArrowIcon className="-mt-0.5 size-5 transition-transform group-hover:translate-x-1" />
+              </a>
+              <WhatsAppButton location="horario" label="WhatsApp" />
+            </div>
+          </div>
+
+          <div data-reveal className="overflow-hidden rounded-md border border-linha lg:col-span-7">
+            <iframe
+              title={`Mapa com a localização da ${site.name}`}
+              src={mapsEmbedUrl}
+              className="h-80 w-full border-0 lg:h-full lg:min-h-[28rem]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
         </div>
       </div>

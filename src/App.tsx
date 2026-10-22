@@ -1,22 +1,24 @@
+import { useEffect } from 'react'
 import { FloatingActions } from './components/FloatingActions'
 import { Faq } from './components/Faq'
 import { FinalCta, Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
-import { Highlights } from './components/Highlights'
 import { HoursLocation } from './components/HoursLocation'
+import { Menu } from './components/Menu'
 import { OrderMain } from './components/OrderMain'
 import { OtherApps } from './components/OtherApps'
-import { Proof } from './components/Proof'
+import { initReveal } from './lib/reveal'
 
 export default function App() {
+  useEffect(() => initReveal(), [])
+
   return (
     <>
       <Header />
-      <main>
+      <main id="conteudo">
         <Hero />
-        <Proof />
-        <Highlights />
+        <Menu />
         <OrderMain />
         <OtherApps />
         <HoursLocation />

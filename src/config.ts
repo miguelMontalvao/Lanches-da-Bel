@@ -33,6 +33,12 @@ export const site = {
   // Enquanto o arquivo não existir, o site mostra uma arte provisória.
   logo: '/images/logo.png',
   heroImage: '/images/hero.png',
+
+  // Crédito no rodapé. Deixe url vazia ('') para exibir só o nome, sem link.
+  credits: {
+    name: 'Atylus Soluções Digitais',
+    url: 'https://atylus.com.br',
+  },
 }
 
 export const mapsQuery = `${site.address.street.replace('Nº ', '')}, ${site.address.neighborhood}, ${site.address.city} - ${site.address.state}`
@@ -56,40 +62,46 @@ export const hours: { day: number; label: string; open: string | null; close: st
 ]
 
 export const proof = [
-  { value: '+10', unit: 'anos', label: 'de tradição em lanches no bairro' },
-  { value: '+100', unit: 'lanches/dia', label: 'saindo quentinhos da chapa' },
-  { value: 'Super', unit: 'Restaurante', label: 'selecionado pelo iFood' },
-  { value: 'Loja', unit: 'Destaque', label: 'reconhecida pela 99Food' },
+  { title: '+10 anos', label: 'de tradição com lanches' },
+  { title: '+100 lanches', label: 'vendidos por dia' },
+  { title: 'Super Restaurante', label: 'selecionado no iFood' },
+  { title: 'Loja Destaque', label: 'na 99Food' },
 ]
 
-// Destaques do cardápio — TODO: confirmar nomes e descrições reais.
-export const highlights = [
+// Cardápio em destaque — só itens com foto real enviada pela loja.
+// O cardápio completo, com preços, fica no Brendi.
+// TODO: confirmar nomes e descrições com a loja.
+export const categories = ['Hambúrgueres', 'Sanduíches', 'Combos'] as const
+export type Category = (typeof categories)[number]
+
+export const menu: { name: string; category: Category; description: string; image: string }[] = [
   {
     name: 'X-Tudo da Bel',
-    description: 'O campeão da casa: dois hambúrgueres, ovo, bacon, presunto e muito queijo derretido.',
+    category: 'Hambúrgueres',
+    description: 'Dois hambúrgueres, ovo, presunto e queijo derretido em camadas.',
     image: '/images/lanche-1.jpg',
-    badge: 'Mais pedido',
-  },
-  {
-    name: 'Mega 30cm',
-    description: 'Prensado de 30cm, caprichado com batata palha, ovo de codorna, azeitona e queijo ralado.',
-    image: '/images/lanche-2.jpg',
-    badge: 'Gigante',
   },
   {
     name: 'X-Egg Salada',
-    description: 'Hambúrguer suculento, ovo, cheddar cremoso, alface e tomate no pão macio.',
+    category: 'Hambúrgueres',
+    description: 'Hambúrguer, ovo, queijo, alface e tomate no pão com gergelim.',
     image: '/images/lanche-3.jpg',
   },
   {
+    name: 'Mega 30cm',
+    category: 'Sanduíches',
+    description: 'Sanduíche de 30cm com ovos de codorna, azeitona e queijo ralado.',
+    image: '/images/lanche-2.jpg',
+  },
+  {
     name: 'Combo da Bel',
-    description: 'Batata com cheddar e bacon, anéis de cebola e lanches variados. Ideal pra dividir!',
+    category: 'Combos',
+    description: 'Batata com cheddar e bacon, anéis de cebola e lanches na mesma caixa.',
     image: '/images/lanche-4.jpg',
-    badge: 'Pra galera',
   },
 ]
 
-// Perguntas frequentes — TODO: revisar respostas (pagamento, taxa, área).
+// Perguntas frequentes — TODO: revisar com a loja (pagamento, retirada, área).
 export const faq = [
   {
     q: 'Vocês entregam no meu endereço?',
@@ -97,18 +109,18 @@ export const faq = [
   },
   {
     q: 'Moro fora da área de entrega. Consigo pedir?',
-    a: 'Consegue! Peça pelo iFood ou pela 99Food — os apps fazem a entrega para mais bairros.',
+    a: 'Consegue. Peça pelo iFood ou pela 99Food: os apps entregam para mais bairros.',
   },
   {
-    q: 'Qual a forma mais vantajosa de pedir?',
-    a: 'Pelo nosso cardápio digital. O pedido chega direto pra gente, sem intermediários, e você aproveita os melhores preços.',
+    q: 'Por que pedir pelo cardápio digital?',
+    a: 'O pedido chega direto na nossa cozinha, sem intermediário. Você vê o cardápio completo com fotos e preços e acompanha tudo pelo celular.',
   },
   {
     q: 'Quais as formas de pagamento?',
-    a: 'Aceitamos Pix, cartões de crédito e débito e dinheiro. Você escolhe na finalização do pedido.',
+    a: 'As formas de pagamento disponíveis aparecem na finalização do pedido, no cardápio digital. Dúvidas? Chame a gente no WhatsApp.',
   },
   {
     q: 'Posso retirar no balcão?',
-    a: 'Pode sim! Escolha "retirada" no cardápio digital e venha buscar na Rua do Campo, Nº 8.',
+    a: 'Confira a opção de retirada ao finalizar o pedido no cardápio digital, ou fale com a gente no WhatsApp. Estamos na Rua do Campo, Nº 8.',
   },
 ]

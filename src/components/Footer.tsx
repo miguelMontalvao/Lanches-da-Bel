@@ -1,19 +1,33 @@
-import { site, whatsappUrl } from '../config'
+import { mapsDirectionsUrl, site, whatsappUrl } from '../config'
 import { track } from '../lib/track'
-import { AppPill, BrendiButton } from './Buttons'
-import { Logo } from './Header'
+import { Logo, navLinks } from './Header'
 
 export function FinalCta() {
   return (
-    <section className="bg-rosa-100 py-16 text-center sm:py-20">
-      <div className="mx-auto max-w-3xl px-4">
-        <h2 className="font-display text-5xl uppercase leading-[0.95] tracking-wide text-tinta sm:text-7xl">Seu lanche está a poucos cliques</h2>
-        <p className="mt-4 text-lg text-tinta/75">Mais de 100 pessoas já pediram hoje. Bora ser a próxima?</p>
-        <BrendiButton location="cta_final" label="Fazer meu pedido agora" className="mt-8 w-full sm:w-auto" />
-        <p className="mt-6 text-sm font-semibold text-tinta/65">Fora da área de entrega?</p>
-        <div className="mx-auto mt-3 flex max-w-xl flex-col gap-3 sm:flex-row sm:justify-center">
-          <AppPill app="99food" location="cta_final" className="sm:min-w-0 sm:px-6 sm:py-3 sm:text-base" />
-          <AppPill app="ifood" location="cta_final" className="sm:min-w-0 sm:px-6 sm:py-3 sm:text-base" />
+    <section aria-labelledby="cta-titulo" className="bg-rosa text-carvao">
+      <div data-reveal className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:py-20 lg:grid-cols-12 lg:items-center">
+        <div className="lg:col-span-7">
+          <h2 id="cta-titulo" className="font-display text-6xl uppercase leading-[0.88] tracking-wide sm:text-7xl">
+            Bateu a fome? <br />A Bel resolve.
+          </h2>
+          <p className="mt-4 max-w-md text-lg font-medium text-carvao/80">Seu pedido sai da chapa direto pra sua casa.</p>
+        </div>
+        <div className="flex flex-col gap-3 lg:col-span-5 lg:items-end">
+          <a
+            href={site.brendiUrl}
+            target="_blank"
+            rel="noopener"
+            onClick={() => track('clique_pedido_brendi', { local: 'cta_final' })}
+            className="inline-flex min-h-14 w-full items-center justify-center rounded-md bg-carvao px-8 pb-3 pt-3.5 font-display text-2xl uppercase leading-none tracking-wider text-creme transition hover:bg-grafite-2 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-carvao lg:w-auto"
+          >
+            Fazer meu pedido agora
+          </a>
+          <p className="text-sm font-medium text-carvao/80">
+            Fora da área?{' '}
+            <a href="#apps" className="font-semibold underline underline-offset-4">
+              Peça pelo iFood ou 99Food
+            </a>
+          </p>
         </div>
       </div>
     </section>
@@ -21,20 +35,92 @@ export function FinalCta() {
 }
 
 export function Footer() {
-  const { address } = site
+  const { address, credits } = site
+  const year = new Date().getFullYear()
+  const linkClass = 'text-creme/70 transition-colors hover:text-creme'
   return (
-    <footer className="border-t border-rosa-100 bg-white pb-28 pt-10 sm:pb-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 text-center text-sm text-tinta/65 sm:flex-row sm:justify-between sm:text-left">
-        <Logo className="h-10" />
-        <p>
-          {address.street} – {address.neighborhood}, {address.region} – {address.city}/{address.state}
-          <br />
-          <a href={whatsappUrl()} target="_blank" rel="noopener" onClick={() => track('clique_whatsapp', { local: 'rodape' })} className="font-bold text-rosa-700 hover:underline">
-            WhatsApp {site.whatsapp.display}
+    <footer className="border-t border-linha pb-28 md:pb-0">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-12">
+        <div className="lg:col-span-4">
+          <Logo className="size-20" />
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-creme/70">
+            Lanches feitos na hora em {address.neighborhood}, {address.region}, há mais de 10 anos.
+          </p>
+        </div>
+
+        <nav aria-label="Rodapé" className="lg:col-span-2">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-creme/50">Navegação</p>
+          <ul className="mt-4 space-y-2.5 text-sm">
+            {navLinks.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className={linkClass}>
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="lg:col-span-3">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-creme/50">Peça por</p>
+          <ul className="mt-4 space-y-2.5 text-sm">
+            <li>
+              <a href={site.brendiUrl} target="_blank" rel="noopener" onClick={() => track('clique_pedido_brendi', { local: 'rodape' })} className={linkClass}>
+                Cardápio digital
+              </a>
+            </li>
+            <li>
+              <a href={whatsappUrl()} target="_blank" rel="noopener" onClick={() => track('clique_whatsapp', { local: 'rodape' })} className={linkClass}>
+                WhatsApp {site.whatsapp.display}
+              </a>
+            </li>
+            <li>
+              <a href={site.ifoodUrl} target="_blank" rel="noopener" onClick={() => track('clique_app_parceiro', { app: 'ifood', local: 'rodape' })} className={linkClass}>
+                iFood
+              </a>
+            </li>
+            <li>
+              <a href={site.food99Url} target="_blank" rel="noopener" onClick={() => track('clique_app_parceiro', { app: '99food', local: 'rodape' })} className={linkClass}>
+                99Food
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="lg:col-span-3">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-creme/50">Endereço</p>
+          <address className="mt-4 text-sm not-italic leading-relaxed text-creme/70">
+            {address.street}
+            <br />
+            {address.neighborhood}, {address.region}
+            <br />
+            {address.city}/{address.state}
+          </address>
+          <a href={mapsDirectionsUrl} target="_blank" rel="noopener" className="mt-2 inline-block text-sm font-semibold text-rosa hover:text-rosa-claro">
+            Como chegar
           </a>
-        </p>
-        <p>© {new Date().getFullYear()} {site.name}</p>
+          <a href="#horario" className="mt-4 block text-sm text-creme/70 transition-colors hover:text-creme">
+            Ver horário de funcionamento
+          </a>
+        </div>
+      </div>
+
+      <div className="border-t border-linha">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-sm text-creme/60 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {year} {site.name}. Todos os direitos reservados.</p>
+          <p>
+            Produzido por{' '}
+            {credits.url ? (
+              <a href={credits.url} target="_blank" rel="noopener" className="font-semibold text-creme/80 underline decoration-creme/30 underline-offset-4 transition-colors hover:text-creme">
+                {credits.name}
+              </a>
+            ) : (
+              <span className="font-semibold text-creme/80">{credits.name}</span>
+            )}
+          </p>
+        </div>
       </div>
     </footer>
   )
 }
+
