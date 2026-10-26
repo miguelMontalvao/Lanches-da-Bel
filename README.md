@@ -33,7 +33,7 @@ Coloque os arquivos em `public/images/` com estes nomes (enquanto não existirem
 | `logo.png` | Cabeçalho e rodapé (fundo transparente) | 400×400 |
 | `carrossel/*.png` + `*.webp` | Lanches sem fundo do carrossel do topo (lista em `heroSlides`) | 1000×1000, fundo transparente |
 | `hero.jpg` | Prévia do link no WhatsApp/redes (og:image) | 1200×630 |
-| `lanche-4.jpg` | Foto da seção "Como pedir" | 800×1000 |
+| `lanche-4.jpg` + `lanche-4.webp` | Foto da seção "Como pedir" | 800×800 |
 
 Para trocar as fotos do carrossel, coloque o PNG sem fundo e a versão `.webp` com o mesmo nome em `public/images/carrossel/` e ajuste a lista `heroSlides` em `src/config.ts`.
 

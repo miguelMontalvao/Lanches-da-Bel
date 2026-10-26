@@ -1,5 +1,4 @@
 import { BrendiButton } from './Buttons'
-import { SafeImage } from './SafeImage'
 import { SectionLabel } from './SectionLabel'
 
 const steps = [
@@ -13,14 +12,19 @@ export function OrderMain() {
     <section id="pedir" aria-labelledby="pedir-titulo" className="py-16 sm:py-24">
       <div className="mx-auto grid max-w-6xl gap-12 px-4 lg:grid-cols-12 lg:items-center lg:gap-16">
         <div data-reveal className="relative mx-auto w-full max-w-sm lg:col-span-5 lg:max-w-none">
-          <div className="aspect-[4/5] overflow-hidden rounded-md">
-            <SafeImage
-              src="/images/lanche-4.jpg"
-              alt="Combo da Bel: batata com cheddar e bacon, anéis de cebola e lanches"
-              width={240}
-              height={240}
-              className="size-full object-cover"
-            />
+          <div className="aspect-square overflow-hidden rounded-md">
+            <picture>
+              <source srcSet="/images/lanche-4.webp" type="image/webp" />
+              <img
+                src="/images/lanche-4.jpg"
+                alt="Combo na caixa: batata com cheddar e bacon, anéis de cebola e três lanches"
+                width={800}
+                height={800}
+                loading="lazy"
+                decoding="async"
+                className="size-full object-cover"
+              />
+            </picture>
           </div>
           <p className="absolute -bottom-4 left-4 rounded-md bg-mostarda px-3 pb-1 pt-1.5 font-display text-lg uppercase tracking-wider text-carvao">
             Canal oficial da Bel
