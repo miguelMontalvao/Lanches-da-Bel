@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { proof, site } from '../config'
 import { isOpenNow } from '../lib/hours'
 import { BrendiButton } from './Buttons'
-import { SafeImage } from './SafeImage'
+import { HeroCarousel } from './HeroCarousel'
 
 function OpenStatus() {
   const [open, setOpen] = useState(isOpenNow)
@@ -11,7 +11,7 @@ function OpenStatus() {
     return () => clearInterval(id)
   }, [])
   return (
-    <a href="#horario" className="inline-flex items-center gap-2 text-sm font-medium text-creme/70 transition-colors hover:text-creme">
+    <a href="#horario" className="inline-flex min-h-11 items-center gap-2 self-start text-sm font-medium text-creme/70 transition-colors hover:text-creme">
       <span aria-hidden="true" className={`size-2 rounded-full ${open ? 'bg-emerald-400' : 'bg-creme/30'}`} />
       {open ? 'Aberto agora' : 'Fechado agora'}
       <span className="text-creme/40">·</span>
@@ -47,32 +47,16 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="relative lg:col-span-5">
-          {/* Luz quente atrás do lanche */}
-          <div
-            aria-hidden="true"
-            className="absolute inset-[10%] rounded-full bg-[radial-gradient(closest-side,rgb(244_183_64/0.28),transparent)]"
-          />
-          <SafeImage
-            src={site.heroImage}
-            alt="X-Tudo da Bel: dois hambúrgueres, ovo, presunto e queijo"
-            width={240}
-            height={240}
-            loading="eager"
-            fetchPriority="high"
-            className="relative mx-auto aspect-square w-full max-w-[22rem] object-contain drop-shadow-[0_24px_30px_rgb(0_0_0/0.55)] sm:max-w-md lg:max-w-none"
-          />
+        <div className="lg:col-span-5">
+          <HeroCarousel />
         </div>
       </div>
 
-      <ul className="mx-auto grid max-w-6xl grid-cols-3 border-t border-linha px-4">
-        {proof.map((p, i) => (
-          <li
-            key={p.title}
-            className={`py-6 pr-3 ${i > 0 ? 'border-l border-linha pl-3 sm:pl-6' : ''}`}
-          >
-            <p className="font-display text-2xl uppercase leading-none tracking-wide sm:text-4xl">{p.title}</p>
-            <p className="mt-1.5 text-sm text-creme/60">{p.label}</p>
+      <ul className="mx-auto grid max-w-6xl divide-y divide-linha border-t border-linha px-4 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+        {proof.map((p) => (
+          <li key={p.title} className="flex items-baseline justify-between gap-4 py-4 sm:block sm:px-6 sm:py-6 sm:first:pl-0">
+            <p className="font-display text-2xl uppercase leading-none tracking-wide sm:text-3xl lg:text-4xl">{p.title}</p>
+            <p className="text-right text-sm text-creme/60 sm:mt-1.5 sm:text-left">{p.label}</p>
           </li>
         ))}
       </ul>

@@ -21,7 +21,7 @@ Pendências (marcadas com `TODO` no arquivo):
 
 - [ ] Link direto da loja no **iFood** (`ifoodUrl`)
 - [ ] Link direto da loja na **99Food** (`food99Url`)
-- [ ] Fotos novas para o **carrossel do topo** e a **galeria de fotos**
+- [ ] Fotos e nomes dos lanches para a **galeria de fotos**
 - [ ] Revisar respostas do **FAQ** (pagamento, área de entrega, retirada)
 
 ## Fotos
@@ -31,9 +31,11 @@ Coloque os arquivos em `public/images/` com estes nomes (enquanto não existirem
 | Arquivo | Uso | Tamanho sugerido |
 |---|---|---|
 | `logo.png` | Cabeçalho e rodapé (fundo transparente) | 400×400 |
-| `hero.png` | Lanche sem fundo no topo da página | 1200×1200, PNG transparente |
+| `carrossel/*.png` + `*.webp` | Lanches sem fundo do carrossel do topo (lista em `heroSlides`) | 1000×1000, fundo transparente |
 | `hero.jpg` | Prévia do link no WhatsApp/redes (og:image) | 1200×630 |
 | `lanche-4.jpg` | Foto da seção "Como pedir" | 800×1000 |
+
+Para trocar as fotos do carrossel, coloque o PNG sem fundo e a versão `.webp` com o mesmo nome em `public/images/carrossel/` e ajuste a lista `heroSlides` em `src/config.ts`.
 
 Dica: comprima as fotos em https://squoosh.app antes de subir (ideal < 200 KB cada).
 

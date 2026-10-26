@@ -32,7 +32,6 @@ export const site = {
   // Fotos: coloque os arquivos em /public/images com estes nomes.
   // Enquanto o arquivo não existir, o site mostra uma arte provisória.
   logo: '/images/logo.png',
-  heroImage: '/images/hero.png',
 
   // Crédito no rodapé. Deixe url vazia ('') para exibir só o nome, sem link.
   credits: {
@@ -40,6 +39,15 @@ export const site = {
     url: 'https://atylus.com.br',
   },
 }
+
+// Carrossel do topo. Cada foto existe em .webp (carregada pelo navegador) e .png (reserva),
+// na pasta /public/images/carrossel. A primeira é a que aparece ao abrir o site.
+export const heroSlides = [
+  { file: 'triplo', alt: 'X-Triplo Montanha: três hambúrgueres com ovo, queijo cheddar e presunto' },
+  { file: 'hotdog', alt: 'Mega Hot Dog de 30cm, recheado com ovo de codorna, azeitona e milho' },
+  { file: 'burger', alt: 'Hambúrguer com bacon, queijo e salada' },
+  { file: 'combo', alt: 'Combo com hambúrguer, batata frita, bebida e bala' },
+]
 
 export const mapsQuery = `${site.address.street.replace('Nº ', '')}, ${site.address.neighborhood}, ${site.address.city} - ${site.address.state}`
 export const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapsQuery)}&output=embed`
