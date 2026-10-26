@@ -19,8 +19,6 @@ Para o crédito "Produzido por" aparecer sem link, deixe `credits.url` vazio.
 
 Pendências (marcadas com `TODO` no arquivo):
 
-- [ ] Link direto da loja no **iFood** (`ifoodUrl`)
-- [ ] Link direto da loja na **99Food** (`food99Url`)
 - [ ] Fotos e nomes dos lanches para a **galeria de fotos**
 - [ ] Revisar respostas do **FAQ** (pagamento, área de entrega, retirada)
 

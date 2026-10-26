@@ -11,9 +11,8 @@ export const site = {
   brendiUrl: 'https://menu.brendi.com.br/lanches-da-bel-bangu',
 
   // Pedido secundário (fora da área de entrega)
-  // TODO: trocar pelos links diretos da loja em cada app.
-  ifoodUrl: 'https://www.ifood.com.br/busca?q=lanches%20da%20bel',
-  food99Url: 'https://food.99app.com/',
+  ifoodUrl: 'https://www.ifood.com.br/delivery/rio-de-janeiro-rj/lanches-da-bel-bangu/186ab393-07ff-443d-b83e-bce2f2ced62e',
+  food99Url: 'https://oia.99app.com/dlp9/aJK5Wi',
 
   whatsapp: {
     number: '5521965448151',
