@@ -1,6 +1,5 @@
 import { site } from '../config'
 import { BrendiButton } from './Buttons'
-import { SafeImage } from './SafeImage'
 
 export const navLinks = [
   { href: '#pedir', label: 'Como pedir' },
@@ -9,7 +8,12 @@ export const navLinks = [
 ]
 
 export function Logo({ className = 'size-14' }: { className?: string }) {
-  return <SafeImage src={site.logo} alt={site.name} width={150} height={150} loading="eager" className={`${className} object-contain`} />
+  return (
+    <picture>
+      <source srcSet="/images/logo-128.webp" type="image/webp" />
+      <img src="/images/logo-128.png" alt={site.name} width={128} height={128} className={`${className} object-contain`} />
+    </picture>
+  )
 }
 
 export function Header() {

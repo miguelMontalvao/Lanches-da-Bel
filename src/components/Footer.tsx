@@ -39,7 +39,9 @@ export function Footer() {
   return (
     <footer className="border-t border-linha pb-24 md:pb-0">
       <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-sm text-creme/60 sm:flex-row sm:items-center sm:justify-between">
-        <p>© {year} {site.name}. Todos os direitos reservados.</p>
+        <p suppressHydrationWarning>
+          © {year} {site.name}. Todos os direitos reservados.
+        </p>
         <p>
           Produzido por{' '}
           {credits.url ? (

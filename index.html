@@ -13,11 +13,15 @@
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:title" content="Lanches da Bel – Peça agora seu lanche" />
     <meta property="og:description" content="+100 lanches por dia. Super Restaurante no iFood e Loja Destaque na 99Food." />
-    <meta property="og:image" content="/images/hero.jpg" />
+    <meta property="og:site_name" content="Lanches da Bel" />
+    <meta property="og:image" content="/images/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="X-Triplo Montanha da Lanches da Bel, em Senador Camará" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preload" href="/fonts/bebas-neue-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
 
     <script type="application/ld+json">
       {
@@ -27,16 +31,28 @@
         "servesCuisine": ["Lanches", "Hambúrguer"],
         "telephone": "+55 21 96544-8151",
         "hasMenu": "https://menu.brendi.com.br/lanches-da-bel-bangu",
+        "image": "/images/og-image.jpg",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Rua do Campo, 8",
+          "streetAddress": "Rua do Campo, 8 - Senador Camará",
           "addressLocality": "Rio de Janeiro",
           "addressRegion": "RJ",
           "addressCountry": "BR"
         },
-        "areaServed": ["Senador Camará", "Bangu"]
+        "areaServed": ["Senador Camará", "Bangu"],
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "16:00",
+          "closes": "05:00"
+        },
+        "sameAs": [
+          "https://www.ifood.com.br/delivery/rio-de-janeiro-rj/lanches-da-bel-bangu/186ab393-07ff-443d-b83e-bce2f2ced62e",
+          "https://oia.99app.com/dlp9/aJK5Wi"
+        ]
       }
     </script>
+    <script>document.documentElement.classList.add("js")</script>
   </head>
   <body>
     <div id="root"></div>

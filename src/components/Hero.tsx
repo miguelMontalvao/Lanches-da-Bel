@@ -5,16 +5,23 @@ import { BrendiButton } from './Buttons'
 import { HeroCarousel } from './HeroCarousel'
 
 function OpenStatus() {
-  const [open, setOpen] = useState(isOpenNow)
+  // null até o navegador calcular: o HTML pré-renderizado não sabe a hora atual
+  const [open, setOpen] = useState<boolean | null>(null)
   useEffect(() => {
-    const id = setInterval(() => setOpen(isOpenNow()), 60_000)
+    const update = () => setOpen(isOpenNow())
+    update()
+    const id = setInterval(update, 60_000)
     return () => clearInterval(id)
   }, [])
   return (
     <a href="#horario" className="inline-flex min-h-11 items-center gap-2 self-start text-sm font-medium text-creme/70 transition-colors hover:text-creme">
-      <span aria-hidden="true" className={`size-2 rounded-full ${open ? 'bg-emerald-400' : 'bg-creme/30'}`} />
-      {open ? 'Aberto agora' : 'Fechado agora'}
-      <span className="text-creme/40">·</span>
+      {open !== null && (
+        <>
+          <span aria-hidden="true" className={`size-2 rounded-full ${open ? 'bg-emerald-400' : 'bg-creme/30'}`} />
+          {open ? 'Aberto agora' : 'Fechado agora'}
+          <span className="text-creme/40">·</span>
+        </>
+      )}
       <span className="underline decoration-creme/30 underline-offset-4">ver horários</span>
     </a>
   )

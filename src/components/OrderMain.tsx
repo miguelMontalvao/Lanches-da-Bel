@@ -14,9 +14,15 @@ export function OrderMain() {
         <div data-reveal className="relative mx-auto w-full max-w-sm lg:col-span-5 lg:max-w-none">
           <div className="aspect-square overflow-hidden rounded-md">
             <picture>
-              <source srcSet="/images/lanche-4.webp" type="image/webp" />
+              <source
+                srcSet="/images/lanche-4-400.webp 400w, /images/lanche-4-600.webp 600w, /images/lanche-4.webp 800w"
+                sizes="(min-width: 1024px) 440px, (min-width: 640px) 384px, calc(100vw - 32px)"
+                type="image/webp"
+              />
               <img
                 src="/images/lanche-4.jpg"
+                srcSet="/images/lanche-4-400.jpg 400w, /images/lanche-4-600.jpg 600w, /images/lanche-4.jpg 800w"
+                sizes="(min-width: 1024px) 440px, (min-width: 640px) 384px, calc(100vw - 32px)"
                 alt="Combo na caixa: batata com cheddar e bacon, anéis de cebola e três lanches"
                 width={800}
                 height={800}

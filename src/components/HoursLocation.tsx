@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { hours, mapsDirectionsUrl, mapsEmbedUrl, site } from '../config'
 import { formatTime, todayIndex } from '../lib/hours'
 import { track } from '../lib/track'
@@ -6,7 +7,9 @@ import { ArrowIcon, PinIcon } from './Icons'
 import { SectionLabel } from './SectionLabel'
 
 export function HoursLocation() {
-  const today = todayIndex()
+  // Dia de hoje só no navegador, para o HTML pré-renderizado não fixar o dia do build
+  const [today, setToday] = useState<number | null>(null)
+  useEffect(() => setToday(todayIndex()), [])
   const { address } = site
   return (
     <section id="horario" aria-labelledby="horario-titulo" className="py-16 sm:py-24">

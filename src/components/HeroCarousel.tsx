@@ -9,10 +9,28 @@ const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: r
 export function HeroCarousel() {
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
+  // As demais fotos só entram depois do carregamento da página, para não disputarem banda com a primeira
+  const [loadRest, setLoadRest] = useState(false)
   const startX = useRef<number | null>(null)
   const total = heroSlides.length
 
-  const go = useCallback((i: number) => setIndex((i + total) % total), [total])
+  const go = useCallback(
+    (i: number) => {
+      setLoadRest(true)
+      setIndex((i + total) % total)
+    },
+    [total],
+  )
+
+  useEffect(() => {
+    if (document.readyState === 'complete') {
+      setLoadRest(true)
+      return
+    }
+    const onLoad = () => setLoadRest(true)
+    window.addEventListener('load', onLoad)
+    return () => window.removeEventListener('load', onLoad)
+  }, [])
 
   // Troca automática: para com movimento reduzido, pausa no toque/hover/foco e com a aba oculta.
   // Depende de `index` para reiniciar a contagem após cada troca manual.
@@ -80,18 +98,21 @@ export function HeroCarousel() {
                 active ? 'scale-100 opacity-100' : 'pointer-events-none scale-90 opacity-0'
               }`}
             >
-              <picture>
-                <source srcSet={`/images/carrossel/${slide.file}.webp`} type="image/webp" />
-                <img
-                  src={`/images/carrossel/${slide.file}.png`}
-                  alt={slide.alt}
-                  draggable={false}
-                  loading={i === 0 ? 'eager' : 'lazy'}
-                  fetchPriority={i === 0 ? 'high' : 'auto'}
-                  decoding="async"
-                  className="max-h-full w-full object-contain drop-shadow-[0_24px_30px_rgb(0_0_0/0.55)]"
-                />
-              </picture>
+              {(i === 0 || loadRest) && (
+                <picture>
+                  <source srcSet={`/images/carrossel/${slide.file}.webp`} type="image/webp" />
+                  <img
+                    src={`/images/carrossel/${slide.file}.png`}
+                    alt={slide.alt}
+                    width={slide.width}
+                    height={slide.height}
+                    draggable={false}
+                    fetchPriority={i === 0 ? 'high' : 'low'}
+                    decoding="async"
+                    className="h-auto max-h-full w-full object-contain drop-shadow-[0_24px_30px_rgb(0_0_0/0.55)]"
+                  />
+                </picture>
+              )}
             </div>
           )
         })}
