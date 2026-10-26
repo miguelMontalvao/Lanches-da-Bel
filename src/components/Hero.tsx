@@ -29,8 +29,8 @@ export function Hero() {
             {site.address.neighborhood} · {site.address.region}
           </p>
           <h1 className="mt-4 font-display text-[3.5rem] uppercase leading-[0.88] tracking-wide sm:text-8xl lg:text-[6.5rem]">
-            O lanche que <br className="hidden sm:block" />
-            Senador Camará pede <span className="text-rosa">há mais de 10 anos.</span>
+            O lanche de <br />
+            <span className="text-rosa">Senador Camará.</span>
           </h1>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-creme/75">
             Feito na chapa, na hora do pedido, e entregue quentinho. Escolha o seu no nosso cardápio digital.
@@ -65,13 +65,13 @@ export function Hero() {
         </div>
       </div>
 
-      <ul className="mx-auto grid max-w-6xl grid-cols-2 border-t border-linha px-4 lg:grid-cols-4">
+      <ul className="mx-auto grid max-w-6xl grid-cols-3 border-t border-linha px-4">
         {proof.map((p, i) => (
           <li
             key={p.title}
-            className={`py-6 pr-4 ${i % 2 === 1 ? 'border-l border-linha pl-4 sm:pl-6' : ''} ${i >= 2 ? 'border-t border-linha lg:border-t-0' : ''} ${i === 2 ? 'lg:border-l lg:pl-6' : ''}`}
+            className={`py-6 pr-3 ${i > 0 ? 'border-l border-linha pl-3 sm:pl-6' : ''}`}
           >
-            <p className="font-display text-3xl uppercase leading-none tracking-wide sm:text-4xl">{p.title}</p>
+            <p className="font-display text-2xl uppercase leading-none tracking-wide sm:text-4xl">{p.title}</p>
             <p className="mt-1.5 text-sm text-creme/60">{p.label}</p>
           </li>
         ))}

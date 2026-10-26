@@ -49,56 +49,21 @@ export const whatsappUrl = (message = site.whatsapp.message) =>
 
 // Horário de funcionamento (horário de Brasília).
 // day: 0 = domingo ... 6 = sábado. Use null para dia fechado.
-// Se o fechamento for depois da meia-noite, use por ex. close: '01:00'.
-// TODO: confirmar horários reais.
+// Se o fechamento for depois da meia-noite, use por ex. close: '05:00'.
 export const hours: { day: number; label: string; open: string | null; close: string | null }[] = [
-  { day: 1, label: 'Segunda', open: null, close: null },
-  { day: 2, label: 'Terça', open: '18:00', close: '23:30' },
-  { day: 3, label: 'Quarta', open: '18:00', close: '23:30' },
-  { day: 4, label: 'Quinta', open: '18:00', close: '23:30' },
-  { day: 5, label: 'Sexta', open: '18:00', close: '00:30' },
-  { day: 6, label: 'Sábado', open: '18:00', close: '00:30' },
-  { day: 0, label: 'Domingo', open: '18:00', close: '23:30' },
+  { day: 1, label: 'Segunda', open: '16:00', close: '05:00' },
+  { day: 2, label: 'Terça', open: '16:00', close: '05:00' },
+  { day: 3, label: 'Quarta', open: '16:00', close: '05:00' },
+  { day: 4, label: 'Quinta', open: '16:00', close: '05:00' },
+  { day: 5, label: 'Sexta', open: '16:00', close: '05:00' },
+  { day: 6, label: 'Sábado', open: '16:00', close: '05:00' },
+  { day: 0, label: 'Domingo', open: '16:00', close: '05:00' },
 ]
 
 export const proof = [
-  { title: '+10 anos', label: 'de tradição com lanches' },
   { title: '+100 lanches', label: 'vendidos por dia' },
   { title: 'Super Restaurante', label: 'selecionado no iFood' },
   { title: 'Loja Destaque', label: 'na 99Food' },
-]
-
-// Cardápio em destaque — só itens com foto real enviada pela loja.
-// O cardápio completo, com preços, fica no Brendi.
-// TODO: confirmar nomes e descrições com a loja.
-export const categories = ['Hambúrgueres', 'Sanduíches', 'Combos'] as const
-export type Category = (typeof categories)[number]
-
-export const menu: { name: string; category: Category; description: string; image: string }[] = [
-  {
-    name: 'X-Tudo da Bel',
-    category: 'Hambúrgueres',
-    description: 'Dois hambúrgueres, ovo, presunto e queijo derretido em camadas.',
-    image: '/images/lanche-1.jpg',
-  },
-  {
-    name: 'X-Egg Salada',
-    category: 'Hambúrgueres',
-    description: 'Hambúrguer, ovo, queijo, alface e tomate no pão com gergelim.',
-    image: '/images/lanche-3.jpg',
-  },
-  {
-    name: 'Mega 30cm',
-    category: 'Sanduíches',
-    description: 'Sanduíche de 30cm com ovos de codorna, azeitona e queijo ralado.',
-    image: '/images/lanche-2.jpg',
-  },
-  {
-    name: 'Combo da Bel',
-    category: 'Combos',
-    description: 'Batata com cheddar e bacon, anéis de cebola e lanches na mesma caixa.',
-    image: '/images/lanche-4.jpg',
-  },
 ]
 
 // Perguntas frequentes — TODO: revisar com a loja (pagamento, retirada, área).

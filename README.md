@@ -13,7 +13,7 @@ npm run build    # gera /dist
 
 ## Onde editar o conteúdo
 
-Tudo fica em **`src/config.ts`** — links, WhatsApp, endereço, horário, cardápio em destaque (`menu` e `categories`), FAQ e crédito do rodapé (`credits`).
+Tudo fica em **`src/config.ts`** — links, WhatsApp, endereço, horário, FAQ e crédito do rodapé (`credits`).
 
 Para o crédito "Produzido por" aparecer sem link, deixe `credits.url` vazio.
 
@@ -21,8 +21,7 @@ Pendências (marcadas com `TODO` no arquivo):
 
 - [ ] Link direto da loja no **iFood** (`ifoodUrl`)
 - [ ] Link direto da loja na **99Food** (`food99Url`)
-- [ ] **Horário** de funcionamento real (`hours`)
-- [ ] Nomes/descrições reais dos **itens do cardápio** (`menu`)
+- [ ] Fotos novas para o **carrossel do topo** e a **galeria de fotos**
 - [ ] Revisar respostas do **FAQ** (pagamento, área de entrega, retirada)
 
 ## Fotos
@@ -34,7 +33,7 @@ Coloque os arquivos em `public/images/` com estes nomes (enquanto não existirem
 | `logo.png` | Cabeçalho e rodapé (fundo transparente) | 400×400 |
 | `hero.png` | Lanche sem fundo no topo da página | 1200×1200, PNG transparente |
 | `hero.jpg` | Prévia do link no WhatsApp/redes (og:image) | 1200×630 |
-| `lanche-1.jpg` … `lanche-4.jpg` | Cards de destaque | 800×800 |
+| `lanche-4.jpg` | Foto da seção "Como pedir" | 800×1000 |
 
 Dica: comprima as fotos em https://squoosh.app antes de subir (ideal < 200 KB cada).
 

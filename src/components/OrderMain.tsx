@@ -28,7 +28,7 @@ export function OrderMain() {
         </div>
 
         <div data-reveal className="lg:col-span-7">
-          <SectionLabel index="02">Como pedir</SectionLabel>
+          <SectionLabel index="01">Como pedir</SectionLabel>
           <h2 id="pedir-titulo" className="mt-4 font-display text-5xl uppercase leading-[0.9] tracking-wide sm:text-6xl">
             Peça direto com a gente
           </h2>

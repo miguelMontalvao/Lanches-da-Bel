@@ -3,7 +3,6 @@ import { BrendiButton } from './Buttons'
 import { SafeImage } from './SafeImage'
 
 export const navLinks = [
-  { href: '#cardapio', label: 'Cardápio' },
   { href: '#pedir', label: 'Como pedir' },
   { href: '#horario', label: 'Horário e local' },
   { href: '#duvidas', label: 'Dúvidas' },

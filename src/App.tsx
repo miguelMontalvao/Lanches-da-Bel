@@ -5,7 +5,6 @@ import { FinalCta, Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { HoursLocation } from './components/HoursLocation'
-import { Menu } from './components/Menu'
 import { OrderMain } from './components/OrderMain'
 import { OtherApps } from './components/OtherApps'
 import { initReveal } from './lib/reveal'
@@ -18,7 +17,6 @@ export default function App() {
       <Header />
       <main id="conteudo">
         <Hero />
-        <Menu />
         <OrderMain />
         <OtherApps />
         <HoursLocation />

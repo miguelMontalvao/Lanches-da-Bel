@@ -7,7 +7,7 @@ export function Faq() {
     <section id="duvidas" aria-labelledby="duvidas-titulo" className="bg-grafite py-16 sm:py-24">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-12 lg:gap-12">
         <div data-reveal className="lg:col-span-4">
-          <SectionLabel index="04">Dúvidas</SectionLabel>
+          <SectionLabel index="03">Dúvidas</SectionLabel>
           <h2 id="duvidas-titulo" className="mt-4 font-display text-5xl uppercase leading-[0.9] tracking-wide sm:text-6xl">
             Perguntas frequentes
           </h2>
