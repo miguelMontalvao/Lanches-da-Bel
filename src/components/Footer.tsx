@@ -17,7 +17,8 @@ export function FinalCta() {
             target="_blank"
             rel="noopener"
             onClick={() => track('clique_pedido_brendi', { local: 'cta_final' })}
-            className="inline-flex min-h-14 w-full items-center justify-center rounded-md bg-carvao px-8 pb-3 pt-3.5 font-display text-2xl uppercase leading-none tracking-wider text-creme transition hover:bg-grafite-2 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-carvao lg:w-auto"
+            data-ripple
+            className="inline-flex min-h-14 w-full items-center justify-center rounded-md bg-carvao px-8 pb-3 pt-3.5 font-display text-2xl uppercase leading-none tracking-wider text-creme transition [--ripple:rgb(242_106_156/0.45)] hover:bg-grafite-2 active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-carvao lg:w-auto"
           >
             Fazer meu pedido agora
           </a>

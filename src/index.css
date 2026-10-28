@@ -136,6 +136,8 @@
 }
 
 html {
+  /* Permite animar até "auto" (abertura suave das dúvidas) nos navegadores que suportam */
+  interpolate-size: allow-keywords;
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
   color-scheme: dark;
@@ -149,6 +151,98 @@ body {
   @apply bg-rosa text-carvao;
 }
 
+/* Granulado de filme por cima de tudo, bem fraco. Treme só com mouse (no celular fica parado). */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  body::after { animation: grain 0.9s steps(6) infinite; }
+}
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-4%, 3%); }
+  40% { transform: translate(3%, -5%); }
+  60% { transform: translate(-6%, -2%); }
+  80% { transform: translate(5%, 4%); }
+}
+
+/* Holofote que segue o cursor (posição vem de src/lib/effects.ts, só com mouse) */
+[data-spotlight] {
+  --spot: 242 106 156;
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+[data-spotlight]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 44rem;
+  height: 44rem;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: radial-gradient(closest-side, rgb(var(--spot) / 0.11), transparent);
+  opacity: 0;
+  transform: translate(calc(var(--mx, 0px) - 50%), calc(var(--my, 0px) - 50%));
+  transition: opacity 0.5s ease;
+}
+[data-spotlight].is-lit::before { opacity: 1; }
+
+/* Onda de luz saindo do ponto do toque/clique */
+[data-ripple] {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.ripple {
+  position: absolute;
+  z-index: -1;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: var(--ripple, rgb(255 255 255 / 0.55));
+  animation: ripple 0.6s ease-out forwards;
+}
+@keyframes ripple {
+  from { transform: scale(0); opacity: 1; }
+  to { transform: scale(var(--ripple-scale, 40)); opacity: 0; }
+}
+
+/* Reflexo atravessando os botões de pedir ao passar o mouse */
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.45) 50%, transparent 65%);
+  transform: translateX(-120%);
+}
+@media (hover: hover) {
+  .btn-shine:hover::after {
+    transform: translateX(120%);
+    transition: transform 0.7s ease;
+  }
+}
+
+/* Dúvidas abrindo e fechando suave (onde o navegador suporta ::details-content) */
+.faq-item::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition: block-size 0.35s ease, content-visibility 0.35s allow-discrete;
+}
+.faq-item[open]::details-content { block-size: auto; }
+
 /* Entrada discreta das seções (ativada só com JS e sem redução de movimento) */
 @media (prefers-reduced-motion: no-preference) {
   .js [data-reveal] {
@@ -160,6 +254,22 @@ body {
     opacity: 1;
     transform: none;
   }
+
+  /* Linha do rótulo da seção se desenhando da esquerda */
+  .js [data-reveal] .label-line {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.25s;
+  }
+  .js [data-reveal].is-visible .label-line { transform: none; }
+
+  /* Linha turquesa ligando os passos de "Como pedir" */
+  .js [data-reveal] .step-line {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s ease-out 0.45s;
+  }
+  .js [data-reveal].is-visible .step-line { transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -44,6 +44,7 @@ Dica: comprima as fotos em https://squoosh.app antes de subir (ideal < 200 KB ca
 - Animações de entrada discretas via atributo `data-reveal` (`src/lib/reveal.ts`), desligadas automaticamente para quem prefere movimento reduzido.
 - Neon no título: "Senador Camará." acende em rosa neon (pisca ao ligar e depois "respira") quando a loja está aberta, e fica como tubo apagado quando está fechada, com o aviso da próxima abertura (`nextOpening` em `src/lib/hours.ts`).
 - Letreiro rolando abaixo do topo (`src/components/Marquee.tsx`), selo girando "Feito na hora • Direto da chapa" e vapor nos hambúrgueres (`src/components/HeroCarousel.tsx`). Com movimento reduzido, tudo fica parado.
+- Efeitos sutis no resto da página: granulado de filme por cima de tudo (`body::after` em `src/index.css`, parado no celular), holofote que segue o mouse nas seções com `data-spotlight` e onda de luz no clique dos botões com `data-ripple` (`src/lib/effects.ts`), reflexo nos botões de pedir (`btn-shine`), passos de "Como pedir" entrando em sequência, linha dos rótulos de seção se desenhando e dúvidas abrindo suave.
 
 ## Música de fundo
 
