@@ -63,6 +63,8 @@
   --color-food99-dark: #f2c200;
 
   --animate-equalizer: equalizer 0.9s ease-in-out infinite;
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-spin-slow: spin 18s linear infinite;
 
   --font-display: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
   --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
@@ -72,6 +74,65 @@
 @keyframes equalizer {
   0%, 100% { height: 0.25rem; }
   50% { height: 1rem; }
+}
+
+/* Letreiro: a faixa tem o texto duas vezes, então andar metade é um ciclo sem emenda */
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+/* Neon do título: aceso com a loja aberta, tubo apagado com ela fechada */
+.neon-on {
+  color: #ffe3ee;
+  text-shadow:
+    0 0 0.04em #fff,
+    0 0 0.12em var(--color-rosa-claro),
+    0 0 0.3em var(--color-rosa),
+    0 0 0.6em rgb(242 106 156 / 0.55);
+  animation: neon-flicker 1.4s linear both, neon-breathe 4s ease-in-out 1.4s infinite;
+}
+.neon-off {
+  /* Rosa apagado, ainda legível (contraste 3,5:1 com o carvão para título grande) */
+  color: #a3506f;
+  text-shadow: none;
+}
+
+@keyframes neon-flicker {
+  0%, 8%, 14%, 30%, 34% { color: #a3506f; text-shadow: none; }
+  6%, 12%, 22%, 32%, 100% {
+    color: #ffe3ee;
+    text-shadow:
+      0 0 0.04em #fff,
+      0 0 0.12em var(--color-rosa-claro),
+      0 0 0.3em var(--color-rosa),
+      0 0 0.6em rgb(242 106 156 / 0.55);
+  }
+}
+@keyframes neon-breathe {
+  50% {
+    text-shadow:
+      0 0 0.03em #fff,
+      0 0 0.1em var(--color-rosa-claro),
+      0 0 0.22em var(--color-rosa),
+      0 0 0.42em rgb(242 106 156 / 0.4);
+  }
+}
+
+/* Vapor subindo do lanche: só transform e opacity, para rodar leve no celular */
+.steam span {
+  position: absolute;
+  bottom: 0;
+  width: 30%;
+  height: 100%;
+  border-radius: 9999px;
+  background: radial-gradient(closest-side, rgb(255 250 244 / 0.6), rgb(255 250 244 / 0.18) 55%, transparent);
+  opacity: 0;
+  animation: steam 3.6s ease-out infinite;
+}
+@keyframes steam {
+  0% { opacity: 0; transform: translate(0, 25%) scale(0.5, 0.4); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--drift, 0), -40%) scale(1.4, 1.1); }
 }
 
 html {
@@ -105,6 +166,9 @@ body {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
+    /* Uma única volta: animações infinitas param no estado final em vez de tremer */
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  .steam { display: none; }
 }

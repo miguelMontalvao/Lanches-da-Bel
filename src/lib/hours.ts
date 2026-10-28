@@ -37,3 +37,16 @@ export function todayIndex() {
 }
 
 export const formatTime = (hhmm: string) => hhmm.replace(':00', 'h').replace(':', 'h')
+
+/** Próxima abertura quando a loja está fechada, ex.: "hoje às 18h30", "amanhã às 18h30", "no sábado às 18h". */
+export function nextOpening(): string | null {
+  const { day, minutes } = nowInBrasilia()
+  for (let offset = 0; offset < 7; offset++) {
+    const d = (day + offset) % 7
+    const h = hours.find((x) => x.day === d && x.open)
+    if (!h?.open || (offset === 0 && toMinutes(h.open) <= minutes)) continue
+    const when = offset === 0 ? 'hoje' : offset === 1 ? 'amanhã' : `${d === 0 || d === 6 ? 'no' : 'na'} ${h.label.toLowerCase()}`
+    return `${when} às ${formatTime(h.open)}`
+  }
+  return null
+}

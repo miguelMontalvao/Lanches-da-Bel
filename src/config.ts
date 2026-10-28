@@ -40,12 +40,13 @@ export const site = {
 // (reserva) e WebP em 3 tamanhos: {file}-480.webp, {file}-640.webp e {file}.webp (900px).
 // width/height = tamanho real da versão de 900px (evita a página "pular").
 // A primeira é a que aparece ao abrir o site (e é pré-carregada no index.html).
+// steam: true mostra vapor subindo do lanche (só nos hambúrgueres).
 export const heroSlides = [
   { file: 'mega30', width: 900, height: 671, alt: 'Mega Hot Dog de 30cm: dois cachorros-quentes com calabresa, ovo de codorna, azeitona, milho e ervilha' },
-  { file: 'queijo-coalho', width: 900, height: 873, alt: 'Hambúrguer com queijo coalho grelhado, bacon, cheddar e alface' },
+  { file: 'queijo-coalho', width: 900, height: 873, steam: true, alt: 'Hambúrguer com queijo coalho grelhado, bacon, cheddar e alface' },
   { file: 'combo-kids', width: 900, height: 823, alt: 'Combo Kids: hambúrguer, batata frita, refrigerante Guaracamp e bala Fini' },
-  { file: 'polenguinho', width: 894, height: 900, alt: 'Hambúrguer com bacon, calabresa, presunto, queijo, tomate, alface e batata palha' },
-  { file: 'montanha', width: 669, height: 900, alt: 'X-Montanha: três hambúrgueres com ovo, queijo coalho e presunto' },
+  { file: 'polenguinho', width: 894, height: 900, steam: true, alt: 'Hambúrguer com bacon, calabresa, presunto, queijo, tomate, alface e batata palha' },
+  { file: 'montanha', width: 669, height: 900, steam: true, alt: 'X-Montanha: três hambúrgueres com ovo, queijo coalho e presunto' },
 ]
 
 export const mapsQuery = `${site.address.street.replace('Nº ', '')}, ${site.address.neighborhood}, ${site.address.city} - ${site.address.state}`
@@ -66,6 +67,9 @@ export const hours: { day: number; label: string; open: string | null; close: st
   { day: 6, label: 'Sábado', open: '18:30', close: '05:00' },
   { day: 0, label: 'Domingo', open: '18:30', close: '05:00' },
 ]
+
+// Faixa de letreiro rolando logo abaixo do topo
+export const marquee = ['Feito na chapa', 'O lanche de Senador Camará', 'Todo dia das 18h30 às 5h', 'Pediu, chegou quentinho']
 
 export const proof = [
   { title: '+100 lanches', label: 'vendidos por dia' },
