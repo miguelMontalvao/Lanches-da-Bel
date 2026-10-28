@@ -50,3 +50,8 @@ export function nextOpening(): string | null {
   }
   return null
 }
+
+/** Data de hoje em Brasília no formato AAAA-MM-DD. */
+export function todayDateBrasilia() {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Sao_Paulo' }).format(new Date())
+}

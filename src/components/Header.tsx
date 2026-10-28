@@ -1,5 +1,6 @@
 import { site } from '../config'
 import { BrendiButton } from './Buttons'
+import { MusicPlayer } from './MusicPlayer'
 
 export const navLinks = [
   { href: '#pedir', label: 'Como pedir' },
@@ -44,6 +45,8 @@ export function Header() {
         <div className="hidden md:block">
           <BrendiButton location="header" label="Pedir agora" size="md" />
         </div>
+        {/* No celular ocupa o canto direito do cabeçalho; no computador fica fixo no canto da tela */}
+        <MusicPlayer />
       </div>
     </header>
   )
