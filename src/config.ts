@@ -36,14 +36,16 @@ export const site = {
   },
 }
 
-// Carrossel do topo. Cada foto existe em .webp (carregada pelo navegador) e .png (reserva),
-// na pasta /public/images/carrossel, com largura e altura reais (evita a página "pular").
-// A primeira é a que aparece ao abrir o site.
+// Carrossel do topo. Cada foto existe em /public/images/carrossel como PNG transparente
+// (reserva) e WebP em 3 tamanhos: {file}-480.webp, {file}-640.webp e {file}.webp (900px).
+// width/height = tamanho real da versão de 900px (evita a página "pular").
+// A primeira é a que aparece ao abrir o site (e é pré-carregada no index.html).
 export const heroSlides = [
-  { file: 'triplo', width: 442, height: 437, alt: 'X-Triplo Montanha: três hambúrgueres com ovo, queijo cheddar e presunto' },
-  { file: 'hotdog', width: 602, height: 436, alt: 'Mega Hot Dog de 30cm, recheado com ovo de codorna, azeitona e milho' },
-  { file: 'burger', width: 467, height: 435, alt: 'Hambúrguer com bacon, queijo e salada' },
-  { file: 'combo', width: 467, height: 436, alt: 'Combo com hambúrguer, batata frita, bebida e bala' },
+  { file: 'mega30', width: 900, height: 671, alt: 'Mega Hot Dog de 30cm: dois cachorros-quentes com calabresa, ovo de codorna, azeitona, milho e ervilha' },
+  { file: 'queijo-coalho', width: 900, height: 873, alt: 'Hambúrguer com queijo coalho grelhado, bacon, cheddar e alface' },
+  { file: 'combo-kids', width: 900, height: 823, alt: 'Combo Kids: hambúrguer, batata frita, refrigerante Guaracamp e bala Fini' },
+  { file: 'polenguinho', width: 894, height: 900, alt: 'Hambúrguer com bacon, calabresa, presunto, queijo, tomate, alface e batata palha' },
+  { file: 'montanha', width: 697, height: 900, alt: 'X-Montanha: três hambúrgueres com ovo, queijo coalho e presunto' },
 ]
 
 export const mapsQuery = `${site.address.street.replace('Nº ', '')}, ${site.address.neighborhood}, ${site.address.city} - ${site.address.state}`

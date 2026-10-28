@@ -29,11 +29,11 @@ Coloque os arquivos em `public/images/` com estes nomes (enquanto não existirem
 | Arquivo | Uso | Tamanho sugerido |
 |---|---|---|
 | `logo.png` | Cabeçalho e rodapé (fundo transparente) | 400×400 |
-| `carrossel/*.png` + `*.webp` | Lanches sem fundo do carrossel do topo (lista em `heroSlides`) | 1000×1000, fundo transparente |
+| `carrossel/{nome}.png` + `{nome}.webp`, `{nome}-640.webp`, `{nome}-480.webp` | Lanches sem fundo do carrossel do topo (lista em `heroSlides`) | 900px no lado maior, fundo transparente |
 | `og-image.jpg` | Prévia do link no WhatsApp/redes (og:image) | 1200×630 |
 | `lanche-4.jpg` + `lanche-4.webp` | Foto da seção "Como pedir" | 800×800 |
 
-Para trocar as fotos do carrossel, coloque o PNG sem fundo e a versão `.webp` com o mesmo nome em `public/images/carrossel/` e ajuste a lista `heroSlides` em `src/config.ts`.
+Para trocar as fotos do carrossel, coloque em `public/images/carrossel/` o PNG sem fundo e as versões WebP de 900, 640 e 480px com o mesmo nome, e ajuste a lista `heroSlides` em `src/config.ts` (com largura e altura da versão de 900px).
 
 Dica: comprima as fotos em https://squoosh.app antes de subir (ideal < 200 KB cada).
 

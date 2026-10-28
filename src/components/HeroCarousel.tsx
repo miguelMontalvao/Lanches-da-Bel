@@ -3,6 +3,8 @@ import { heroSlides } from '../config'
 
 const INTERVAL = 4000
 const SWIPE_MIN = 40
+// Largura do carrossel na tela: 20rem no celular, 28rem a partir de sm, coluna de ~460px no desktop
+const SIZES = '(min-width: 1024px) 460px, (min-width: 640px) 448px, 320px'
 
 const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
@@ -100,7 +102,11 @@ export function HeroCarousel() {
             >
               {(i === 0 || loadRest) && (
                 <picture>
-                  <source srcSet={`/images/carrossel/${slide.file}.webp`} type="image/webp" />
+                  <source
+                    srcSet={`/images/carrossel/${slide.file}-480.webp 480w, /images/carrossel/${slide.file}-640.webp 640w, /images/carrossel/${slide.file}.webp 900w`}
+                    sizes={SIZES}
+                    type="image/webp"
+                  />
                   <img
                     src={`/images/carrossel/${slide.file}.png`}
                     alt={slide.alt}
