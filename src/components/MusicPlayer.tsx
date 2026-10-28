@@ -25,8 +25,8 @@ function savePrefs(prefs: Prefs) {
 }
 
 /**
- * Jingle de fundo, num botão redondo que não cobre o conteúdo: no celular fica no canto
- * vazio do cabeçalho; no computador, no canto inferior esquerdo. O volume abre num painel.
+ * Jingle de fundo, num botão redondo que não cobre o conteúdo: no celular fica dentro do
+ * cabeçalho, no canto vazio; no computador, fixo no canto inferior esquerdo. O volume abre num painel.
  * O navegador só permite som após uma interação, então a música começa
  * no primeiro toque/clique na página (a menos que a pessoa já tenha pausado antes).
  * O arquivo só é baixado depois que a página termina de carregar.
@@ -171,7 +171,7 @@ export function MusicPlayer() {
       ref={rootRef}
       role="group"
       aria-label="Jingle da Lanches da Bel"
-      className="fixed right-4 top-3 z-50 flex items-center gap-1 sm:top-5 md:bottom-6 md:left-6 md:right-auto md:top-auto md:flex-col-reverse md:gap-2"
+      className="relative flex items-center gap-1 md:fixed md:bottom-6 md:left-6 md:z-50 md:flex-col-reverse md:gap-2"
     >
       <button
         type="button"

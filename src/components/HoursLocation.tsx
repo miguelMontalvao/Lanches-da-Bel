@@ -1,10 +1,63 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { hours, mapsDirectionsUrl, mapsEmbedUrl, site } from '../config'
 import { formatTime, todayIndex } from '../lib/hours'
 import { track } from '../lib/track'
 import { WhatsAppButton } from './Buttons'
 import { ArrowIcon, PinIcon } from './Icons'
 import { SectionLabel } from './SectionLabel'
+
+// Fundo com pin enquanto o mapa não carrega; o mapa só entra perto da tela.
+// Sem JavaScript, o fundo continua como link para o Google Maps.
+function MapEmbed() {
+  const ref = useRef<HTMLDivElement>(null)
+  const [near, setNear] = useState(false)
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el || !('IntersectionObserver' in window)) return setNear(true)
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setNear(true)
+          io.disconnect()
+        }
+      },
+      { rootMargin: '400px 0px' },
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
+
+  return (
+    <div ref={ref} className="relative h-80 bg-grafite lg:h-full lg:min-h-[28rem]">
+      <a
+        href={mapsDirectionsUrl}
+        target="_blank"
+        rel="noopener"
+        aria-hidden={loaded}
+        tabIndex={loaded ? -1 : undefined}
+        className="absolute inset-0 grid place-content-center justify-items-center gap-3 bg-[radial-gradient(rgb(58_51_49/0.7)_1px,transparent_1px)] bg-[size:18px_18px] text-center"
+      >
+        <span className="grid size-14 place-items-center rounded-full bg-turquesa/15 text-turquesa">
+          <PinIcon className={`size-7 ${near && !loaded ? 'motion-safe:animate-bounce' : ''}`} />
+        </span>
+        <span className="font-semibold">{site.address.street}</span>
+        <span className="text-sm text-creme/60">{near ? 'Carregando o mapa…' : 'Ver no Google Maps'}</span>
+      </a>
+      {near && (
+        <iframe
+          title={`Mapa com a localização da ${site.name}`}
+          src={mapsEmbedUrl}
+          onLoad={() => setLoaded(true)}
+          className={`absolute inset-0 size-full border-0 transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+        />
+      )}
+    </div>
+  )
+}
 
 export function HoursLocation() {
   // Dia de hoje só no navegador, para o HTML pré-renderizado não fixar o dia do build
@@ -70,14 +123,7 @@ export function HoursLocation() {
           </div>
 
           <div data-reveal className="overflow-hidden rounded-md border border-linha lg:col-span-7">
-            <iframe
-              title={`Mapa com a localização da ${site.name}`}
-              src={mapsEmbedUrl}
-              className="h-80 w-full border-0 lg:h-full lg:min-h-[28rem]"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
+            <MapEmbed />
           </div>
         </div>
       </div>

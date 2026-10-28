@@ -15,6 +15,8 @@ npm run build    # gera /dist
 
 Tudo fica em **`src/config.ts`** — links, WhatsApp, endereço, horário, frases do letreiro (`marquee`), FAQ e crédito do rodapé (`credits`).
 
+Aviso de horário especial (feriado, promoção): preencha `notice.text` em `src/config.ts` e ele aparece numa faixa mostarda acima do cabeçalho. Com `notice.until` ('AAAA-MM-DD'), o aviso some sozinho depois desse dia. Para tirar, deixe `text: ''`.
+
 Para o crédito "Produzido por" aparecer sem link, deixe `credits.url` vazio.
 
 Pendências (marcadas com `TODO` no arquivo):
@@ -50,7 +52,7 @@ Dica: comprima as fotos em https://squoosh.app antes de subir (ideal < 200 KB ca
 
 - Arquivo: `public/audio/jingle-lanches-da-bel.mp3` (MP3 96 kbps). Para trocar, substitua o arquivo mantendo o nome ou ajuste `SRC` em `src/components/MusicPlayer.tsx`.
 - Só é baixada depois que a página termina de carregar; começa no primeiro toque/clique (os navegadores bloqueiam som automático), em loop e com volume inicial de 25%.
-- Botão redondo (tocar/pausar, com equalizador enquanto toca) e um botão de volume que abre um painel. No celular fica no canto do cabeçalho; no computador, no canto inferior esquerdo, sem cobrir o conteúdo. A escolha do visitante (pausado e volume) fica salva no navegador dele.
+- Botão redondo (tocar/pausar, com equalizador enquanto toca) e um botão de volume que abre um painel. No celular fica dentro do cabeçalho, no canto direito; no computador, no canto inferior esquerdo, sem cobrir o conteúdo. A escolha do visitante (pausado e volume) fica salva no navegador dele.
 
 ## Métricas de conversão
 

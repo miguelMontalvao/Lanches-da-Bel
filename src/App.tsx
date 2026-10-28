@@ -6,6 +6,7 @@ import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { HoursLocation } from './components/HoursLocation'
 import { Marquee } from './components/Marquee'
+import { Notice } from './components/Notice'
 import { OrderMain } from './components/OrderMain'
 import { OtherApps } from './components/OtherApps'
 import { initRipple, initSpotlight } from './lib/effects'
@@ -19,6 +20,7 @@ export default function App() {
 
   return (
     <>
+      <Notice />
       <Header />
       <main id="conteudo">
         <Hero />

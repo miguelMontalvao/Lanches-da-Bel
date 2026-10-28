@@ -68,6 +68,11 @@ export const hours: { day: number; label: string; open: string | null; close: st
   { day: 0, label: 'Domingo', open: '18:30', close: '05:00' },
 ]
 
+// Aviso no topo do site (feriado, horário especial, promoção). Deixe text: '' para não mostrar.
+// until (opcional, 'AAAA-MM-DD'): o aviso some sozinho depois desse dia. Ex.:
+// export const notice = { text: 'Feriado: hoje abrimos às 20h', until: '2026-11-15' }
+export const notice = { text: '', until: '' }
+
 // Faixa de letreiro rolando logo abaixo do topo
 export const marquee = ['Feito na chapa', 'O lanche de Senador Camará', 'Todo dia das 18h30 às 5h', 'Pediu, chegou quentinho']
 
