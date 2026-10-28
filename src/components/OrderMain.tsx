@@ -9,7 +9,7 @@ const steps = [
 
 export function OrderMain() {
   return (
-    <section id="pedir" aria-labelledby="pedir-titulo" className="py-16 sm:py-24">
+    <section id="pedir" aria-labelledby="pedir-titulo" data-spotlight className="py-16 sm:py-24">
       <div className="mx-auto grid max-w-6xl gap-12 px-4 lg:grid-cols-12 lg:items-center lg:gap-16">
         <div data-reveal className="relative mx-auto w-full max-w-sm lg:col-span-5 lg:max-w-none">
           <div className="aspect-square overflow-hidden rounded-md">
@@ -49,8 +49,17 @@ export function OrderMain() {
 
           <ol className="mt-8 border-t border-linha">
             {steps.map((s, i) => (
-              <li key={s.title} className="grid grid-cols-[3rem_1fr] gap-4 border-b border-linha py-5">
+              // Cada passo entra um depois do outro; a linha liga o número ao próximo
+              <li
+                key={s.title}
+                data-reveal
+                style={{ transitionDelay: `${i * 150}ms` }}
+                className="relative grid grid-cols-[3rem_1fr] gap-4 border-b border-linha py-5"
+              >
                 <span className="font-display text-4xl leading-none text-turquesa">{String(i + 1).padStart(2, '0')}</span>
+                {i < steps.length - 1 && (
+                  <span aria-hidden="true" className="step-line absolute -bottom-3 left-[0.95rem] top-[3.75rem] w-0.5 rounded-full bg-turquesa/50" />
+                )}
                 <div>
                   <p className="font-display text-2xl uppercase leading-none tracking-wide">{s.title}</p>
                   <p className="mt-1.5 text-creme/70">{s.text}</p>

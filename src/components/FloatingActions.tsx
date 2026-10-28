@@ -28,7 +28,8 @@ export function FloatingActions() {
             target="_blank"
             rel="noopener"
             onClick={() => track('clique_pedido_brendi', { local: 'barra_mobile' })}
-            className="flex min-h-13 flex-1 items-center justify-center rounded-md bg-rosa pb-2.5 pt-3.5 font-display text-2xl uppercase leading-none tracking-wider text-carvao transition active:scale-[0.98]"
+            data-ripple
+            className="flex min-h-13 flex-1 items-center justify-center rounded-md bg-rosa pb-2.5 pt-3.5 font-display text-2xl uppercase leading-none tracking-wider text-carvao transition active:scale-[0.96]"
           >
             Pedir agora
           </a>
@@ -38,7 +39,8 @@ export function FloatingActions() {
             rel="noopener"
             aria-label="Falar no WhatsApp"
             onClick={() => track('clique_whatsapp', { local: 'barra_mobile' })}
-            className="grid min-h-13 w-14 place-items-center rounded-md border border-linha text-creme transition active:scale-[0.98]"
+            data-ripple
+            className="grid min-h-13 w-14 place-items-center rounded-md border border-linha text-creme transition [--ripple:rgb(247_239_229/0.22)] active:scale-[0.96]"
           >
             <WhatsAppIcon className="size-6" />
           </a>

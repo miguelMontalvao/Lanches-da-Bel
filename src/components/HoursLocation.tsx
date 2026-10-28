@@ -12,7 +12,7 @@ export function HoursLocation() {
   useEffect(() => setToday(todayIndex()), [])
   const { address } = site
   return (
-    <section id="horario" aria-labelledby="horario-titulo" className="py-16 sm:py-24">
+    <section id="horario" aria-labelledby="horario-titulo" data-spotlight className="py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-4">
         <div data-reveal>
           <SectionLabel index="02">Horário e local</SectionLabel>
@@ -59,7 +59,8 @@ export function HoursLocation() {
                 target="_blank"
                 rel="noopener"
                 onClick={() => track('clique_como_chegar')}
-                className="group inline-flex min-h-14 items-center justify-center gap-2.5 rounded-md bg-creme px-6 pb-3 pt-3.5 font-display text-2xl uppercase leading-none tracking-wider text-carvao transition hover:bg-white active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-creme"
+                data-ripple
+                className="group inline-flex min-h-14 items-center justify-center gap-2.5 rounded-md bg-creme px-6 pb-3 pt-3.5 font-display text-2xl uppercase leading-none tracking-wider text-carvao transition [--ripple:rgb(18_16_16/0.16)] hover:bg-white active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-creme"
               >
                 Como chegar
                 <ArrowIcon className="-mt-0.5 size-5 transition-transform group-hover:translate-x-1" />

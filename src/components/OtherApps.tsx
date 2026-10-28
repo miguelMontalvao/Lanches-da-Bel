@@ -2,7 +2,8 @@ import { AppPill } from './Buttons'
 
 export function OtherApps() {
   return (
-    <section id="apps" aria-labelledby="apps-titulo" className="border-y border-turquesa/20 bg-petroleo">
+    <section id="apps" aria-labelledby="apps-titulo" data-spotlight
+      className="border-y border-turquesa/20 bg-petroleo [--spot:46_196_182]">
       <div data-reveal className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:py-14 lg:grid-cols-12 lg:items-center">
         <div className="lg:col-span-6">
           <h2 id="apps-titulo" className="font-display text-5xl uppercase leading-[0.9] tracking-wide sm:text-6xl">

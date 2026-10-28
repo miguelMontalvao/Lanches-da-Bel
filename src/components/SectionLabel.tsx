@@ -3,7 +3,7 @@ export function SectionLabel({ index, children }: { index: string; children: Rea
   return (
     <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-turquesa">
       <span className="font-display text-base tracking-wider text-creme/50">{index}</span>
-      <span aria-hidden="true" className="h-px w-8 bg-turquesa/60" />
+      <span aria-hidden="true" className="label-line h-px w-8 bg-turquesa/60" />
       {children}
     </p>
   )
