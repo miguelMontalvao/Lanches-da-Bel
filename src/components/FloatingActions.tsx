@@ -1,10 +1,13 @@
 import { site, whatsappUrl } from '../config'
 import { track } from '../lib/track'
 import { WhatsAppIcon } from './Icons'
+import { MusicPlayer } from './MusicPlayer'
 
 export function FloatingActions() {
   return (
     <>
+      <MusicPlayer />
+
       {/* Desktop: WhatsApp flutuante */}
       <a
         href={whatsappUrl()}

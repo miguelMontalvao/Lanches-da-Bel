@@ -37,7 +37,7 @@ export function Footer() {
   const { credits } = site
   const year = new Date().getFullYear()
   return (
-    <footer className="border-t border-linha pb-24 md:pb-0">
+    <footer className="border-t border-linha pb-40 md:pb-24">
       <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-sm text-creme/60 sm:flex-row sm:items-center sm:justify-between">
         <p suppressHydrationWarning>
           © {year} {site.name}. Todos os direitos reservados.

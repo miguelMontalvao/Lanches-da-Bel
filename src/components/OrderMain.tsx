@@ -50,7 +50,7 @@ export function OrderMain() {
           <ol className="mt-8 border-t border-linha">
             {steps.map((s, i) => (
               <li key={s.title} className="grid grid-cols-[3rem_1fr] gap-4 border-b border-linha py-5">
-                <span className="font-display text-4xl leading-none text-rosa">{String(i + 1).padStart(2, '0')}</span>
+                <span className="font-display text-4xl leading-none text-turquesa">{String(i + 1).padStart(2, '0')}</span>
                 <div>
                   <p className="font-display text-2xl uppercase leading-none tracking-wide">{s.title}</p>
                   <p className="mt-1.5 text-creme/70">{s.text}</p>

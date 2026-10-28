@@ -46,9 +46,14 @@
   --color-linha: #3a3331;
   --color-creme: #f7efe5;
 
-  /* Marca e detalhes quentes */
+  /* Marca: rosa = ações (pedir) */
   --color-rosa: #f26a9c;
   --color-rosa-claro: #ff8db5;
+  /* Complementar dividida do rosa: turquesa = informação e navegação */
+  --color-turquesa: #2ec4b6;
+  --color-turquesa-claro: #8be3da;
+  --color-petroleo: #0d2624;
+  /* Detalhe quente: selos e chamadas */
   --color-mostarda: #f4b740;
 
   /* Parceiros */
@@ -57,9 +62,16 @@
   --color-food99: #ffd400;
   --color-food99-dark: #f2c200;
 
+  --animate-equalizer: equalizer 0.9s ease-in-out infinite;
+
   --font-display: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
   --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
 
+}
+
+@keyframes equalizer {
+  0%, 100% { height: 0.25rem; }
+  50% { height: 1rem; }
 }
 
 html {

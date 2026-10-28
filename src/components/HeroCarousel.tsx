@@ -131,7 +131,7 @@ export function HeroCarousel() {
             <span
               aria-hidden="true"
               className={`h-1.5 rounded-full transition-all duration-300 ${
-                i === index ? 'w-6 bg-rosa' : 'w-1.5 bg-creme/35 group-hover:bg-creme/70'
+                i === index ? 'w-6 bg-turquesa' : 'w-1.5 bg-creme/35 group-hover:bg-creme/70'
               }`}
             />
           </button>

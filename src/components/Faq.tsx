@@ -18,11 +18,11 @@ export function Faq() {
         <div data-reveal className="border-t border-linha lg:col-span-8">
           {faq.map((item) => (
             <details key={item.q} className="group border-b border-linha">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-lg font-semibold transition-colors hover:text-rosa-claro focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-creme [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-lg font-semibold transition-colors hover:text-turquesa-claro focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-creme [&::-webkit-details-marker]:hidden">
                 {item.q}
                 <span
                   aria-hidden="true"
-                  className="relative size-4 shrink-0 before:absolute before:inset-x-0 before:top-1/2 before:h-0.5 before:-translate-y-1/2 before:bg-current after:absolute after:inset-y-0 after:left-1/2 after:w-0.5 after:-translate-x-1/2 after:bg-current after:transition-transform group-open:after:scale-y-0"
+                  className="relative size-4 shrink-0 text-turquesa before:absolute before:inset-x-0 before:top-1/2 before:h-0.5 before:-translate-y-1/2 before:bg-current after:absolute after:inset-y-0 after:left-1/2 after:w-0.5 after:-translate-x-1/2 after:bg-current after:transition-transform group-open:after:scale-y-0"
                 />
               </summary>
               <p className="max-w-2xl pb-6 leading-relaxed text-creme/70">{item.a}</p>

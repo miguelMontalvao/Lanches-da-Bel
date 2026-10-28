@@ -56,13 +56,13 @@ export const whatsappUrl = (message = site.whatsapp.message) =>
 // day: 0 = domingo ... 6 = sábado. Use null para dia fechado.
 // Se o fechamento for depois da meia-noite, use por ex. close: '05:00'.
 export const hours: { day: number; label: string; open: string | null; close: string | null }[] = [
-  { day: 1, label: 'Segunda', open: '16:00', close: '05:00' },
-  { day: 2, label: 'Terça', open: '16:00', close: '05:00' },
-  { day: 3, label: 'Quarta', open: '16:00', close: '05:00' },
-  { day: 4, label: 'Quinta', open: '16:00', close: '05:00' },
-  { day: 5, label: 'Sexta', open: '16:00', close: '05:00' },
-  { day: 6, label: 'Sábado', open: '16:00', close: '05:00' },
-  { day: 0, label: 'Domingo', open: '16:00', close: '05:00' },
+  { day: 1, label: 'Segunda', open: '18:30', close: '05:00' },
+  { day: 2, label: 'Terça', open: '18:30', close: '05:00' },
+  { day: 3, label: 'Quarta', open: '18:30', close: '05:00' },
+  { day: 4, label: 'Quinta', open: '18:30', close: '05:00' },
+  { day: 5, label: 'Sexta', open: '18:30', close: '05:00' },
+  { day: 6, label: 'Sábado', open: '18:30', close: '05:00' },
+  { day: 0, label: 'Domingo', open: '18:30', close: '05:00' },
 ]
 
 export const proof = [

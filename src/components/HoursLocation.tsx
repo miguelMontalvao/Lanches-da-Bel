@@ -32,7 +32,7 @@ export function HoursLocation() {
                     <tr key={h.day} className={`border-b border-linha ${isToday ? 'text-creme' : 'text-creme/70'}`}>
                       <th scope="row" className={`py-3 font-medium ${isToday ? 'font-semibold' : ''}`}>
                         {h.label}
-                        {isToday && <span className="ml-2 text-xs font-semibold uppercase tracking-wider text-mostarda">Hoje</span>}
+                        {isToday && <span className="ml-2 text-xs font-semibold uppercase tracking-wider text-turquesa">Hoje</span>}
                       </th>
                       <td className="py-3 text-right tabular-nums">
                         {h.open && h.close ? `${formatTime(h.open)} – ${formatTime(h.close)}` : 'Fechado'}
@@ -44,7 +44,7 @@ export function HoursLocation() {
             </table>
 
             <address className="mt-8 flex gap-3 not-italic">
-              <PinIcon className="mt-0.5 size-5 shrink-0 text-rosa" />
+              <PinIcon className="mt-0.5 size-5 shrink-0 text-turquesa" />
               <span>
                 <span className="block font-semibold">{address.street}</span>
                 <span className="text-creme/70">

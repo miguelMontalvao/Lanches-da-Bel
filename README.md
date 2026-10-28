@@ -39,9 +39,15 @@ Dica: comprima as fotos em https://squoosh.app antes de subir (ideal < 200 KB ca
 
 ## Design
 
-- Paleta e fontes definidas em `src/index.css` (`@theme`): base grafite/carvão, rosa da marca para ações, mostarda para detalhes.
+- Paleta e fontes definidas em `src/index.css` (`@theme`): base grafite/carvão, rosa da marca para ações (pedir), turquesa (complementar dividida do rosa) para informação e navegação, mostarda para selos e detalhes.
 - Títulos em Bebas Neue, textos em Barlow.
 - Animações de entrada discretas via atributo `data-reveal` (`src/lib/reveal.ts`), desligadas automaticamente para quem prefere movimento reduzido.
+
+## Música de fundo
+
+- Arquivo: `public/audio/jingle-lanches-da-bel.mp3` (MP3 96 kbps). Para trocar, substitua o arquivo mantendo o nome ou ajuste `SRC` em `src/components/MusicPlayer.tsx`.
+- Só é baixada depois que a página termina de carregar; começa no primeiro toque/clique (os navegadores bloqueiam som automático), em loop e com volume inicial de 25%.
+- Player fixo com tocar/pausar e volume. A escolha do visitante (pausado e volume) fica salva no navegador dele.
 
 ## Métricas de conversão
 

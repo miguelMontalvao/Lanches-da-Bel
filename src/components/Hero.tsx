@@ -17,7 +17,7 @@ function OpenStatus() {
     <a href="#horario" className="inline-flex min-h-11 items-center gap-2 self-start text-sm font-medium text-creme/70 transition-colors hover:text-creme">
       {open !== null && (
         <>
-          <span aria-hidden="true" className={`size-2 rounded-full ${open ? 'bg-emerald-400' : 'bg-creme/30'}`} />
+          <span aria-hidden="true" className={`size-2 rounded-full ${open ? 'bg-turquesa' : 'bg-creme/30'}`} />
           {open ? 'Aberto agora' : 'Fechado agora'}
           <span className="text-creme/40">·</span>
         </>
