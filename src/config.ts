@@ -45,7 +45,7 @@ export const heroSlides = [
   { file: 'queijo-coalho', width: 900, height: 873, alt: 'Hambúrguer com queijo coalho grelhado, bacon, cheddar e alface' },
   { file: 'combo-kids', width: 900, height: 823, alt: 'Combo Kids: hambúrguer, batata frita, refrigerante Guaracamp e bala Fini' },
   { file: 'polenguinho', width: 894, height: 900, alt: 'Hambúrguer com bacon, calabresa, presunto, queijo, tomate, alface e batata palha' },
-  { file: 'montanha', width: 697, height: 900, alt: 'X-Montanha: três hambúrgueres com ovo, queijo coalho e presunto' },
+  { file: 'montanha', width: 669, height: 900, alt: 'X-Montanha: três hambúrgueres com ovo, queijo coalho e presunto' },
 ]
 
 export const mapsQuery = `${site.address.street.replace('Nº ', '')}, ${site.address.neighborhood}, ${site.address.city} - ${site.address.state}`
