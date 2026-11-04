@@ -45,7 +45,6 @@ export const heroSlides = [
   { file: 'mega30', width: 900, height: 671, alt: 'Mega Hot Dog de 30cm: dois cachorros-quentes com calabresa, ovo de codorna, azeitona, milho e ervilha' },
   { file: 'queijo-coalho', width: 900, height: 881, steam: true, alt: 'Hambúrguer com queijo coalho grelhado, bacon, cheddar e alface' },
   { file: 'combo-kids', width: 900, height: 823, alt: 'Combo Kids: hambúrguer, batata frita, refrigerante Guaracamp e bala Fini' },
-  { file: 'caixa-top', width: 900, height: 484, alt: 'Caixa Top: batata com cheddar e bacon, nuggets, molho e três hambúrgueres na caixa' },
   { file: 'polenguinho', width: 894, height: 900, steam: true, alt: 'Hambúrguer com bacon, calabresa, presunto, queijo, tomate, alface e batata palha' },
   { file: 'montanha', width: 761, height: 900, steam: true, alt: 'X-Montanha: três hambúrgueres com ovo, queijo coalho e presunto' },
 ]
