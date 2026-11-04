@@ -63,4 +63,5 @@ Basta colar o script do Google Analytics 4 / Tag Manager ou Meta Pixel no `index
 
 1. Em https://vercel.com, clique em **Add New → Project** e importe este repositório.
 2. A Vercel detecta Vite automaticamente (build `npm run build`, saída `dist`). Clique em **Deploy**.
-3. Para usar domínio próprio: **Settings → Domains**.
+3. Domínio próprio: **https://lanchesdabel.com.br** (o `www` redireciona para ele). Em **Settings → Domains**, adicione `lanchesdabel.com.br` e `www.lanchesdabel.com.br`, e crie no Registro.br os registros que a Vercel mostrar (um **A** para o domínio e um **CNAME** para o `www`).
+4. O endereço do site também aparece em `index.html` (canonical, `og:url`, `og:image` e dados para o Google), `public/robots.txt` e `public/sitemap.xml`. Se o domínio mudar, troque nesses arquivos.
