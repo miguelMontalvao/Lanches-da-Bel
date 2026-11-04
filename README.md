@@ -33,7 +33,7 @@ Coloque os arquivos em `public/images/` com estes nomes (enquanto não existirem
 | `logo.png` | Cabeçalho e rodapé (fundo transparente) | 400×400 |
 | `carrossel/{nome}.png` + `{nome}.webp`, `{nome}-640.webp`, `{nome}-480.webp` | Lanches sem fundo do carrossel do topo (lista em `heroSlides`) | 900px no lado maior, fundo transparente |
 | `og-image.jpg` | Prévia do link no WhatsApp/redes (og:image) | 1200×630 |
-| `lanche-4.jpg` + `lanche-4.webp` | Foto da seção "Como pedir" | 800×800 |
+| `caixa-top.png` + `caixa-top.webp`, `caixa-top-640.webp`, `caixa-top-480.webp` | Caixa Top sem fundo na seção "Como pedir" | 900px de largura, fundo transparente |
 
 Para trocar as fotos do carrossel, coloque em `public/images/carrossel/` o PNG sem fundo e as versões WebP de 900, 640 e 480px com o mesmo nome, e ajuste a lista `heroSlides` em `src/config.ts` (com largura e altura da versão de 900px). Use `steam: true` para mostrar vapor subindo do lanche.
 

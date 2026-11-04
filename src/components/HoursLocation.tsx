@@ -67,7 +67,7 @@ export function HoursLocation() {
   return (
     <section id="horario" aria-labelledby="horario-titulo" data-spotlight className="py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-4">
-        <div data-reveal>
+        <div data-reveal className="text-center lg:text-left">
           <SectionLabel index="02">Horário e local</SectionLabel>
           <h2 id="horario-titulo" className="mt-4 font-display text-5xl uppercase leading-[0.9] tracking-wide sm:text-6xl">
             Vem buscar ou pede em casa
