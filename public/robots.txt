@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://lanchesdabel.com.br/sitemap.xml
