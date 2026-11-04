@@ -39,10 +39,10 @@ export function OrderMain() {
 
         <div data-reveal className="lg:col-span-7">
           <SectionLabel index="01">Como pedir</SectionLabel>
-          <h2 id="pedir-titulo" className="mt-4 font-display text-5xl uppercase leading-[0.9] tracking-wide sm:text-6xl">
+          <h2 id="pedir-titulo" className="mt-4 text-center font-display text-5xl uppercase leading-[0.9] tracking-wide sm:text-6xl lg:text-left">
             Peça direto com a gente
           </h2>
-          <p className="mt-4 max-w-lg text-lg leading-relaxed text-creme/70">
+          <p className="mx-auto mt-4 max-w-lg text-center text-lg leading-relaxed text-creme/70 lg:mx-0 lg:text-left">
             Pelo cardápio digital, o pedido cai direto na nossa cozinha, sem intermediário. É o jeito mais rápido de receber e a melhor forma
             de apoiar a lanchonete do seu bairro.
           </p>
@@ -68,7 +68,9 @@ export function OrderMain() {
             ))}
           </ol>
 
-          <BrendiButton location="secao_pedido" label="Abrir cardápio e pedir" className="mt-8 w-full sm:w-auto" />
+          <div className="mt-8 text-center lg:text-left">
+            <BrendiButton location="secao_pedido" label="Abrir cardápio e pedir" className="w-full sm:w-auto" />
+          </div>
         </div>
       </div>
     </section>

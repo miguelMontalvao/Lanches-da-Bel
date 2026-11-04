@@ -5,13 +5,13 @@ export function FinalCta() {
   return (
     <section aria-labelledby="cta-titulo" className="bg-rosa text-carvao">
       <div data-reveal className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:py-20 lg:grid-cols-12 lg:items-center">
-        <div className="lg:col-span-7">
+        <div className="text-center lg:col-span-7 lg:text-left">
           <h2 id="cta-titulo" className="font-display text-6xl uppercase leading-[0.88] tracking-wide sm:text-7xl">
             Bateu a fome? <br />A Bel resolve.
           </h2>
-          <p className="mt-4 max-w-md text-lg font-medium text-carvao/80">Seu pedido sai da chapa direto pra sua casa.</p>
+          <p className="mx-auto mt-4 max-w-md text-lg font-medium text-carvao/80 lg:mx-0">Seu pedido sai da chapa direto pra sua casa.</p>
         </div>
-        <div className="flex flex-col gap-3 lg:col-span-5 lg:items-end">
+        <div className="flex flex-col items-center gap-3 text-center lg:col-span-5 lg:items-end lg:text-left">
           <a
             href={site.brendiUrl}
             target="_blank"
