@@ -25,9 +25,9 @@ export function OrderMain() {
             />
             <img
               src="/images/caixa-top.png"
-              alt="Caixa Top: batata com cheddar e bacon, nuggets, molho e três hambúrgueres"
+              alt="Caixa Top: batata com cheddar e bacon, anéis de cebola, molho e três hambúrgueres"
               width={900}
-              height={484}
+              height={496}
               loading="lazy"
               decoding="async"
               className="relative h-auto w-full drop-shadow-[0_24px_30px_rgb(0_0_0/0.55)]"
